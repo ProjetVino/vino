@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div>
-     <h1>Importer les bouteilles</h1>
+    <h1>Importer les bouteilles</h1>
 
     <form method="POST" action="{{ route('importer-bouteilles') }}">
         @csrf
@@ -22,7 +22,7 @@
         <input type="submit" value="Importer les bouteilles" name="submit">
         <a href="/logout">Déconnexion</a>
     </form>
-   
+
 </div>
 
 @endsection
