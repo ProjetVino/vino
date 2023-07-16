@@ -23,6 +23,7 @@
             </section>
 
             <section id="bouteillesContainer" class="catalogue">
+
             @if ($bouteilles->isEmpty())
                 <div class="carte">
                   <p>Aucune bouteille trouvée!</p>
@@ -56,5 +57,28 @@
 
             </section>
         </main>
+
+        <!-- Popup ajouter au cellier -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+            <span class="close" onclick="cacherPopup()">&times;</span>
+            <h2>Ajouter au cellier</h2>
+            <form>
+                <label for="quantite">Quantité :</label>
+                <input type="number" id="quantite" name="quantite" min=0 required>
+                
+                <label for="cellier">Cellier :</label>
+                <select id="cellier" name="cellier" required>
+                    <option value="" selected>Coisir un cellier</option>
+                @foreach(Auth::user()->celliers as $cellier)
+                    <option value="{{$cellier->id}}">{{$cellier->nom}}</option>
+                @endforeach
+                <!-- Ajouter les autres options de cellier ici -->
+                </select>
+                
+                <button type="submit">Ajouter</button>
+            </form>
+            </div>
+        </div>
         <!--  <script src="{{ asset('js/recherche.js') }}"></script> --><!-- Inclure le fichier JavaScript de recherche -->
 @endsection
