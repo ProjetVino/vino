@@ -18,6 +18,7 @@ class BouteilleController extends Controller
     public function index()
     {
         $bouteilles = Bouteille::paginate(30);
+        
          return view('bouteilles.index',['bouteilles' => $bouteilles]);
     }
 
