@@ -35,6 +35,13 @@ Route::post('/login',  [AuthController::class, 'authentification']);
 Route::get('/index',  [BouteilleController::class, 'index'])->name('bouteilles.index')->middleware('auth');
 Route::get('/details/{id}',  [BouteilleController::class, 'show'])->name('bouteilles.details')->middleware('auth');
 
+Route::post('/recherche', [BouteilleController::class, 'rechercher'])->name('recherche');
+Route::get('/recherche', [BouteilleController::class, 'rechercher'])->name('recherche');
+
+
+
+
+
 Route::get('/logout',  [AuthController::class, 'deconnexion']);
 
 

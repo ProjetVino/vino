@@ -7,16 +7,16 @@
 
             <section class="detail">
                 <div class="detail-text">
-                    <p>Vin rouge</p>
-                    <h2>EA Cartuxa Reserva</h2>
-                    <p>Vin rouge | 750 ml | Portugal</p>
-                    <p>Code produit : 12345678</p>
+                    <p>{{$bouteille->type_id}}</p>
+                    <h2>{{$bouteille->nom}}</h2>
+                    <p>{{$bouteille->description}}</p>
+                    <p>Code SAQ : {{$bouteille->code_saq}}</p>
                 </div>
                 <div class="detail-img">
-                    <img src="assets/vin-rouge.png" alt="bouteille">
+                    <img src="{{$bouteille->url_img}}" alt="bouteille">
                 </div>
                 <div class="btn-carte">
-                    <a href="#">29.95 $</a>
+                    <a href="#">{{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $</a>
                     <a href="#">Ajouter à mon celier</a>
                 </div>
             </section>
