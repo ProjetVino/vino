@@ -68,7 +68,9 @@ class CellierController extends Controller
     public function show($id)
     {
         $cellier = Cellier::find($id);
-        return view('celliers.detail-cellier',compact('cellier'));
+        $bouteilles=Cellier::find($id)->bouteilles()->paginate(8);
+
+        return view('celliers.detail-cellier',compact('cellier','bouteilles'));
     }
 
     /**
