@@ -2,8 +2,12 @@
 @section('titre', 'DETAILS')
 @section('content')
 <main>
-            <section class="container">
-            </section>
+    <div class="details-container">
+        <span class="details-category">
+            <a heref="/">Vins</a>
+            &#62;
+            <a heref="/">Rouge</a>
+        </span>
 
             <section class="detail">
                 <div class="detail-text">
@@ -20,5 +24,8 @@
                     <a href="#">Ajouter à mon celier</a>
                 </div>
             </section>
-        </main>
+            </div>
+        </div>
+    </div>
+</main>
 @endsection

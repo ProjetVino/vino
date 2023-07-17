@@ -15,7 +15,7 @@
 <body>
     <div id="app">
         @if(empty(trim($__env->yieldContent('MasquerHeaderFooter'))))
-        <header>
+        <header class="header-image">
             <nav>
                 <div class="nav-bar">
                     <div class="nav-bar-logo">

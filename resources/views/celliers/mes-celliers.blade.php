@@ -42,6 +42,8 @@
                            
                               </div>
             </section>
+<<<<<<< HEAD
+=======
 
             <section class="pagination">
                 <!-- Pagination -->
@@ -55,5 +57,6 @@
                     Ajouter un cellier
                 </a>
             </section>
+>>>>>>> 933684a077593b85d6b60095ecef69cd3d4420e6
         </main>
 @endsection
