@@ -270,6 +270,7 @@ main {
     padding-bottom: 80px; /* Ajustez cette valeur pour correspondre à la hauteur du footer */
 }
 
+<<<<<<< HEAD
 .btn-carte-trash a{
     font-size: 16px;
     color: #690102;
@@ -286,6 +287,15 @@ main {
 
 .bi-trash {
     color: #690102; 
+=======
+.btn-carte-btn {
+    font-size: 9px;
+    color: #690102;
+    background-color: rgb(216, 214, 212);
+    padding: 4px 10px;
+    border: none;
+    text-decoration: underline;
+>>>>>>> 11a44d886d1118867dfd27d08eef97de0577b8d9
 }
 
 
