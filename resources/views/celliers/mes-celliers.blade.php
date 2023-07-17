@@ -12,6 +12,13 @@
                 </div> -->
             </section>
 
+            <section>
+                <a href="#" class="align-right">
+                    <img src="assets/add.png" alt="add">
+                    Ajouter un cellier
+                </a>
+            </section>
+
             <!-- <section>
                 <div>
                     <div>
@@ -64,12 +71,6 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <section>
-                <a href="#" class="align-right">
-                    <img src="assets/add.png" alt="add">
-                    Ajouter un cellier
-                </a>
             </section>
         </main>
 @endsection
