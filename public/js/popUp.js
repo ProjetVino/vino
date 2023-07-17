@@ -1,6 +1,5 @@
 
 function ajouterAuCellier(event) {
-    debugger;
     let idBouteille = event.currentTarget.getAttribute("data-id");
     afficherPopup();
 
@@ -11,38 +10,40 @@ function ajouterAuCellier(event) {
 }
 
 function envoyerFormulaire(idBouteille) {
-    debugger;
     let quantiteInput = document.getElementById("quantite");
     let cellierInput = document.getElementById("cellier");
-
-    let formData = new FormData();
-    formData.append("quantite", quantiteInput.value);
-    formData.append("cellier_id", cellierInput.value);
-    formData.append("bouteille_id", idBouteille);
-    formData.append("source", "index");
 
     fetch("/ajouter-au-cellier", {
         method: "POST",
         headers: {
-           
+
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
             "X-CSRF-TOKEN": document
                 .querySelector('meta[name="csrf-token"]')
                 .getAttribute("content"),
         },
-        body: formData,
+        body: JSON.stringify({
+            
+            quantite : quantiteInput.value,
+            cellier_id : cellierInput.value,
+            bouteille_id : idBouteille,
+            vue_source : "index"
+        }),
     })
         .then((response) => {
             if (response.ok) {
-                alert("ok");
+                console.log(response.json())
             } else {
-                alert("probleme");
+                console.log(response)
             }
         })
         .catch((error) => {
             // Faire quelque chose en cas d'erreur
         });
 
-    cacherPopup();
+    /* cacherPopup(); */
 }
 
 

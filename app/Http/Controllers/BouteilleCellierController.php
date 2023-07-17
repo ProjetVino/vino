@@ -50,9 +50,11 @@ class BouteilleCellierController extends Controller
         else{
             BouteilleCellier::where('cellier_id', $request->cellier_id)
                 ->where('bouteille_id', $request->bouteille_id)
-                ->update(['quantite' => $test->first()->quantite + 1]);
+                ->update(['quantite' => $test->first()->quantite + $request->quantite]);
         }
-
+        if(isset($request->vue_source) &&  $request->vue_source == "index") // pour tester si je viens d'index
+            return response()->json(['message' => 'Bouteille ajoutée au cellier avec succès'], 200);
+        else
         return redirect()->route('celliers.show',$request->cellier_id)->with('success','success');
 
     }
@@ -108,10 +110,10 @@ class BouteilleCellierController extends Controller
     public function updateQuantite(Request $request)
     {
 
-            $data = $request->all();
+        $data = $request->all();
 
-$quantite=$data["quantite"];
-$id=$data["idcb"]["_value"];
+        $quantite=$data["quantite"];
+        $id=$data["idcb"]["_value"];
 
         BouteilleCellier::where('id','=',$id) //
             ->update(['quantite' => $quantite]);
@@ -121,4 +123,6 @@ $id=$data["idcb"]["_value"];
 
         return response()->json(['success' => 'update', 'cellier_id' => $cellier_id]);
     }
+
+    
 }
