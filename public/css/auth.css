@@ -111,24 +111,3 @@
     color: #690102;
 
 }
-/*         Mehdi     */
-.cellier-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    min-height: 100vh;
-}
-.cellier-form-container {
-    border: 2px solid #690102;
-    padding: 6rem 3rem 3rem;
-    width: 100%;
-    max-width: 360px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    position: relative;
-}
