@@ -12,65 +12,51 @@
                 </div> -->
             </section>
 
+            <section class="catalogue">
+                <div class="row text-center carte">
+                        @forelse($celliers as $cellier)
+
+                            <div class="col-md-3 card mb-1 mr-1" style="width: 18rem;">
+                                <div class="card-body text-carte">
+                                    <h2 class="card-title">{{ $cellier->nom  }}</h2>
+                                    <p class="card-subtitle mb-2 text-muted">{{ $cellier->note }}</p>
+
+                                    <p>Vin rouge : 3 | Vin blanc : 4 | Vin rosé : 12</p>
+                                    <div class="form-horizontal form-inline text-center btn-carte">
+                                        <a href="{{route('celliers.show',$cellier->id)}}" class="card-link"> Détails</a>
+                                            <a href="{{route('celliers.edit',$cellier->id)}}" class="card-link">Modifier</a>
+                                            <form  action="{{route('celliers.destroy',$cellier->id)}}" method="POST">
+                                                <a type="submit" class="btn btn-link card-link" value=""> Supprimer</a>
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @empty
+
+                            <label>Pas de Celliers</label>
+
+                    @endforelse
+                           
+                              </div>
+            </section>
+<<<<<<< HEAD
+=======
+
+            <section class="pagination">
+                <!-- Pagination -->
+                @include('../pagination.pagination', ['paginator' => $celliers])
+            </section>
+
+
             <section>
-                <a href="#" class="align-right">
+                <a href=" {{ route('celliers.create') }} " class="align-right">
                     <img src="assets/add.png" alt="add">
                     Ajouter un cellier
                 </a>
             </section>
-
-            <!-- <section>
-                <div>
-                    <div>
-                        <a href="mon-cellier.html">Chalet</a>
-                        <a href="#">Modifier</a> 
-                        <a href="#">
-                            <img src="assets/add.png" alt="add">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="mon-cellier.html">Maison</a>
-                        <a href="#">Modifier</a> 
-                        <a href="#">
-                            <img src="assets/add.png" alt="add">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="mon-cellier.html">Voyage</a>
-                        <a href="#">Modifier</a> 
-                        <a href="#">
-                            <img src="assets/add.png" alt="add">
-                        </a>
-                    </div>
-                </div>
-            </section> -->
-
-            <section class="catalogue">
-                <div class="carte">
-                    <div class="text-carte">
-                        <h2>Cellier Maison</h2>
-                        <p>Mon commentaire</p>
-                        <h3>Stock</h3>
-                        <p>Vin rouge : 3 | Vin blanc : 4 | Vin rosé : 12</p>
-                        <div class="btn-carte">
-                            <a href="/detail-cellier/1">Détails</a>
-                            <a href="#">Modifier</a>
-                            <a href="#">Supprimer</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carte">
-                    <div class="text-carte">
-                        <h2>Cellier Chalet</h2>
-                        <h3>Stock</h3>
-                        <p>Vin rouge : 3 | Vin blanc : 4 | Vin rosé : 12</p>
-                        <div class="btn-carte">
-                            <a href="/detail-cellier/2">Détails</a>
-                            <a href="#">Modifier</a>
-                            <a href="#">Supprimer</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+>>>>>>> 933684a077593b85d6b60095ecef69cd3d4420e6
         </main>
 @endsection

@@ -10,11 +10,12 @@ class Cellier extends Model
     use HasFactory;
 
     protected $fillable = [
-        
+
         'id',
+        'nom',
         'note',
         'user_id',
-    ]; 
+    ];
 
     public function user()
     {
@@ -24,6 +25,6 @@ class Cellier extends Model
     public function bouteilles()
     {
         return $this->belongsToMany(Bouteille::class, 'bouteilles_celliers', 'cellier_id', 'bouteille_id')
-            ->withPivot('quantite', 'note');
-    }       
+            ->withPivot('quantite','note','id');
+    }
 }

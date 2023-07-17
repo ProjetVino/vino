@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BouteilleController;
 use App\Http\Controllers\CellierController;
-
+use App\Http\Controllers\BouteilleCellierController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +35,17 @@ Route::post('/login',  [AuthController::class, 'authentification']);
 Route::get('/index',  [BouteilleController::class, 'index'])->name('bouteilles.index')->middleware('auth');
 Route::get('/details/{id}',  [BouteilleController::class, 'show'])->name('bouteilles.details')->middleware('auth');
 
+Route::post('/recherche', [BouteilleController::class, 'rechercher'])->name('recherche');
+Route::get('/recherche', [BouteilleController::class, 'rechercher'])->name('recherche');
+
+//ajouter bouteille au celleir
+Route::post('/ajouter-au-cellier', [BouteilleCellierController::class, 'store']);
+
+
+
+
+
+
 Route::get('/logout',  [AuthController::class, 'deconnexion']);
 
 
@@ -50,6 +61,9 @@ Route::post('/importer-bouteilles', [SAQController::class, 'scrapeSAQ']);
 
 
 // routes pour la vue cellier
-Route::get('/mes-celliers',  [CellierController::class, 'index'])->name('celliers.mes-celliers')->middleware('auth');
+Route::resource('celliers',  CellierController::class)->middleware('auth');
+Route::resource('bouteillecellier',  BouteilleCellierController::class)->middleware('auth');
+Route::get('/indexCellier/{cellier_id}',  [BouteilleController::class, 'indexCellier'])->name('bouteilles.indexCellier')->middleware('auth');
+Route::post('celliers/{id}/updateQuantite',  [BouteilleCellierController::class, 'updateQuantite'])->name('updateQuantite')->middleware('auth');
 
-Route::get('/detail-cellier/{id}',  [CellierController::class, 'show'])->name('celliers.detail-cellier')->middleware('auth');
+Route::post('ajouter/{id}',  [BouteilleCellierController::class, 'ajouterbouteilleaucelleir'])->name('ajouterBouteilleCellier')->middleware('auth');

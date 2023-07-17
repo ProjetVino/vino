@@ -9,30 +9,20 @@
             <a heref="/">Rouge</a>
         </span>
 
-        <div class="product-card">
-            <div class="product-details">
-                <h2 class="product-name">EA Cartuxa Reserva</h2>
-                <p class="product-description">
-                    Vin rouge | 750 ml | Portugal
-                </p>
-                <p class="product-code">Code produit : 12345678</p>
-            </div>
-
-            <div class="product-image-container">
-                <img
-                    src="../assets/vin-rouge.png"
-                    alt="bouteille"
-                    class="product-image"
-                />
-            </div>
-
-            <div class="product-cart">
-                <p class="product-price">29.95 $</p>
-                <section>
-                <a href="#" class="align-right">
-                    <img src="../assets/add.png" alt="add">
-                    Ajouter un cellier
-                </a>
+            <section class="detail">
+                <div class="detail-text">
+                    <p>{{$bouteille->type_id}}</p>
+                    <h2>{{$bouteille->nom}}</h2>
+                    <p>{{$bouteille->description}}</p>
+                    <p>Code SAQ : {{$bouteille->code_saq}}</p>
+                </div>
+                <div class="detail-img">
+                    <img src="{{$bouteille->url_img}}" alt="bouteille">
+                </div>
+                <div class="btn-carte">
+                    <a href="#">{{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $</a>
+                    <a href="#">Ajouter à mon celier</a>
+                </div>
             </section>
             </div>
         </div>

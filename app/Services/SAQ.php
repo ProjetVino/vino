@@ -68,6 +68,23 @@ class SAQ
     private function recupereInfo($node)
     {
         $info = new \stdClass();
+
+        
+        // Récupérer l'URL d'origine de l'image
+        $originalUrl = $node->filter('img.product-image-photo')->attr('src');
+
+        // Extraire la première partie de l'URL avant le "?"
+        $baseUrl = strtok($originalUrl, '?');
+
+        // Construire la nouvelle URL avec la chaîne de requête
+        $newUrl = $baseUrl . '?width=367&height=550&canvas=367,550&quality=80&fit=bounds';
+
+        // Mettre à jour la valeur de $info->img avec la nouvelle URL
+        $info->BigImg = $newUrl;
+
+
+
+
         $info->img = $node->filter('img.product-image-photo')->attr('src');
         $a_titre = $node->filter('a')->eq(1);
         $info->url = $a_titre->attr('href');
@@ -123,7 +140,7 @@ class SAQ
                 $info->desc->texte,
                 $info->desc->prix_SAQ,
                 $info->url,
-                $info->img,
+                $info->BigImg,
                 $info->desc->format,
             ]);
 
