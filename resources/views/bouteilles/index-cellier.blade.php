@@ -7,9 +7,9 @@
                     <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
                 <div>
-                    <a href="#" class="text-container">
-                      
-                       Cellier en cours :  {{ $cellier->nom }}
+                    <a href="{{route('celliers.create')}}" class="text-container">
+                        <img src="{{asset('assets/add.png')}}" alt="add">
+                        Ajouter un cellier
                     </a>
                 </div>
                 <div class="recherche">
@@ -39,17 +39,12 @@
                                         <input type="hidden" name="quantite" value="1">
                                         <button type="submit" class="btn-carte-btn" >Ajouter</button>                   
                                 </form>
-                              
-                                @endif
+                                <a href="javascript:void(0)" @if(isset($cellier->id)) onclick="$('#form_cellier').submit()" @else onclick="alert('Veuillez dabord ajouter un cellier')" @endif   >Ajouter à mon cellier</a>
+
                             </div>
                         </div>
                     </div>
                 @endforeach
-
-
-
-
-
 
             </section>
             <section class="pagination">
@@ -58,12 +53,6 @@
             </section>
         </main>
     @push('js')
-<script>
-    function formAjouter(){
-        
-        document.forms["form_cellier"].submit();
-
-    }
-</script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     @endpush
 @endsection
