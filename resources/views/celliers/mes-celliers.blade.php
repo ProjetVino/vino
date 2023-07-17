@@ -39,11 +39,15 @@
                             <label>Pas de Celliers</label>
 
                     @endforelse
-                            <div class="d-flex">
-                                {!! $celliers->links() !!}
-                            </div>
+                           
                               </div>
             </section>
+
+            <section class="pagination">
+                <!-- Pagination -->
+                @include('../pagination.pagination', ['paginator' => $celliers])
+            </section>
+
 
             <section>
                 <a href=" {{ route('celliers.create') }} " class="align-right">
