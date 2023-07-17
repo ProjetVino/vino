@@ -38,11 +38,6 @@ class BouteilleCellierController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-=======
-
-        dd($request->all());
->>>>>>> 11a44d886d1118867dfd27d08eef97de0577b8d9
        $test = BouteilleCellier::where('cellier_id','=',$request->cellier_id)->where('bouteille_id','=',$request->bouteille_id);
         if($test->count()==0){
             $celliers=BouteilleCellier::create([
@@ -57,12 +52,6 @@ class BouteilleCellierController extends Controller
                 ->where('bouteille_id', $request->bouteille_id)
                 ->update(['quantite' => $test->first()->quantite + 1]);
         }
-<<<<<<< HEAD
-=======
-
-        if(isset($request->source) && $request->source == "index")
-         return "ok";
->>>>>>> 11a44d886d1118867dfd27d08eef97de0577b8d9
 
         return redirect()->route('celliers.show',$request->cellier_id)->with('success','success');
 
