@@ -20,7 +20,7 @@
 
             <div class="product-image-container">
                 <img
-                    src="./vin-rouge.png"
+                    src="../assets/vin-rouge.png"
                     alt="bouteille"
                     class="product-image"
                 />
@@ -28,9 +28,12 @@
 
             <div class="product-cart">
                 <p class="product-price">29.95 $</p>
-                <button class="product-add-cart-btn">
-                    Ajouter à mon celier
-                </button>
+                <section>
+                <a href="#" class="align-right">
+                    <img src="../assets/add.png" alt="add">
+                    Ajouter un cellier
+                </a>
+            </section>
             </div>
         </div>
     </div>
