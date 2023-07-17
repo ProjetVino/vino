@@ -38,6 +38,10 @@ Route::get('/details/{id}',  [BouteilleController::class, 'show'])->name('boutei
 Route::post('/recherche', [BouteilleController::class, 'rechercher'])->name('recherche');
 Route::get('/recherche', [BouteilleController::class, 'rechercher'])->name('recherche');
 
+//ajouter bouteille au celleir
+Route::post('/ajouter-au-cellier', [BouteilleCellierController::class, 'store']);
+
+
 
 
 

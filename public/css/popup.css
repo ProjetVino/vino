@@ -1,0 +1,91 @@
+
+
+
+
+
+
+button.btn-ajouter {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+.popup .formulaires {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup label {
+  margin-top: 10px;
+}
+
+.popup input,
+.popup select {
+  padding: 5px;
+}
+
+.popup input[type="button"] {
+  background-color: rgb(216, 214, 212);
+  color: #690102;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #690102;
+  background-color: rgb(216, 214, 212);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+/* Styles spécifiques pour les appareils mobiles */
+@media (max-width: 425px) {
+ 
+
+  .popup-content {
+    max-width: 80%;
+    width: 280px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

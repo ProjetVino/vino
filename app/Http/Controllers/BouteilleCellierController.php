@@ -39,7 +39,7 @@ class BouteilleCellierController extends Controller
     public function store(Request $request)
     {
 
-
+        dd($request->all());
        $test = BouteilleCellier::where('cellier_id','=',$request->cellier_id)->where('bouteille_id','=',$request->bouteille_id);
 
         if($test->count()==0){
@@ -50,11 +50,14 @@ class BouteilleCellierController extends Controller
                 'note'=>'',
             ]);
         }
-else{
-    BouteilleCellier::where('cellier_id', $request->cellier_id)
-        ->where('bouteille_id', $request->bouteille_id)
-        ->update(['quantite' => $test->first()->quantite + 1]);
-}
+        else{
+            BouteilleCellier::where('cellier_id', $request->cellier_id)
+                ->where('bouteille_id', $request->bouteille_id)
+                ->update(['quantite' => $test->first()->quantite + 1]);
+        }
+
+        if(isset($request->source) && $request->source == "index")
+         return "ok";
 
         return redirect()->route('celliers.show',$request->cellier_id)->with('success','success');
 

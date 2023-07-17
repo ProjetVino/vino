@@ -40,7 +40,7 @@
                             <h3>{{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $</h3>
                             <div class="btn-carte">
                                 <a href="/details/{{$bouteille->id}}">Détails</a>
-                                <a href="#">Ajouter à mon celier</a>
+                                <input type="button" class="btn-carte-btn" onclick="ajouterAuCellier(event)" data-id="{{$bouteille->id}}" value="Ajouter à mon cellier">
                             </div>
                         </div>
                     </div>
@@ -61,24 +61,34 @@
         <!-- Popup ajouter au cellier -->
         <div id="popup" class="popup">
             <div class="popup-content">
-            <span class="close" onclick="cacherPopup()">&times;</span>
-            <h2>Ajouter au cellier</h2>
-            <form>
-                <label for="quantite">Quantité :</label>
-                <input type="number" id="quantite" name="quantite" min=0 required>
-                
-                <label for="cellier">Cellier :</label>
-                <select id="cellier" name="cellier" required>
-                    <option value="" selected>Coisir un cellier</option>
-                @foreach(Auth::user()->celliers as $cellier)
-                    <option value="{{$cellier->id}}">{{$cellier->nom}}</option>
-                @endforeach
-                <!-- Ajouter les autres options de cellier ici -->
-                </select>
-                
-                <button type="submit">Ajouter</button>
-            </form>
+                <span class="close" onclick="cacherPopup()">&times;</span>
+                <h2>Ajouter au cellier</h2>
+                @if (Auth::user()->celliers->isEmpty())
+                    <div>
+                        <a href="#" class="text-container">
+                            <img src="{{asset('assets/add.png')}}" alt="add">
+                            Ajouter un cellier
+                        </a>
+                    </div>             
+                @else
+                    <div class="formulaires">
+                        
+                        <label for="quantite">Quantité :</label>
+                        <input type="number" id="quantite" name="quantite" min=1 value="1" required>
+                        
+                        <label for="cellier">Cellier :</label>
+                        <select id="cellier" name="cellier" required>
+                            <option value="" selected>Coisir un cellier</option>
+                        @foreach(Auth::user()->celliers as $cellier)
+                            <option value="{{$cellier->id}}">{{$cellier->nom}}</option>
+                        @endforeach
+                        <!-- Ajouter les autres options de cellier ici -->
+                        </select>
+                        
+                        <input type="button" id="popup-ajouter" value="Ajouter">
+                    </div>
+                @endif
             </div>
         </div>
-        <!--  <script src="{{ asset('js/recherche.js') }}"></script> --><!-- Inclure le fichier JavaScript de recherche -->
+        <script src="{{ asset('js/popUp.js') }}"></script> <!-- Inclure le fichier JavaScript de popup -->
 @endsection

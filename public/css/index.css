@@ -270,4 +270,13 @@ main {
     padding-bottom: 80px; /* Ajustez cette valeur pour correspondre à la hauteur du footer */
 }
 
+.btn-carte-btn {
+    font-size: 9px;
+    color: #690102;
+    background-color: rgb(216, 214, 212);
+    padding: 4px 10px;
+    border: none;
+    text-decoration: underline;
+}
+
 
