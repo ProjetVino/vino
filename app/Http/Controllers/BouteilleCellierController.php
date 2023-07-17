@@ -52,11 +52,6 @@ class BouteilleCellierController extends Controller
                 ->where('bouteille_id', $request->bouteille_id)
                 ->update(['quantite' => $test->first()->quantite + 1]);
         }
-<<<<<<< HEAD
-=======
-
-    
->>>>>>> 11a44d886d1118867dfd27d08eef97de0577b8d9
 
         return redirect()->route('celliers.show',$request->cellier_id)->with('success','success');
 

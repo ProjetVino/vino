@@ -204,9 +204,7 @@
     align-items: center;
 }
 
-.detail-text {
 
-}
 
 .detail-img img {
     height: 300px;
@@ -285,7 +283,8 @@ main {
 }
 
 .bi-trash {
-    color: #690102; }
+    color: #690102; 
+}
 .btn-carte-btn {
     font-size: 9px;
     color: #690102;
@@ -293,6 +292,7 @@ main {
     padding: 4px 10px;
     border: none;
     text-decoration: underline;
+
 }
 
 
