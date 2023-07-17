@@ -36,7 +36,6 @@ function envoyerFormulaire(idBouteille) {
                 alert("ok");
             } else {
                 alert("probleme");
-                console.log(response);
             }
         })
         .catch((error) => {
