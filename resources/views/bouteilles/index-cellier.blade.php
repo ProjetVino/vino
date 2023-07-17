@@ -30,7 +30,7 @@
                             <h3>{{$bouteille->prix_saq}} $</h3>
                             <div class="btn-carte">
                                
-                                <button type="button" class="btn btn-link"  style="font-size: 16px; color: #690102;background-color: rgb(216, 214, 212);padding: 4px 10px;">Détails</button> 
+                                <button type="button" class="btn btn-link">Détails</button> 
                                 @if(isset($cellier->id))
                                 <form method="post" id="form_cellier" action="{{route('bouteillecellier.store')}}">
                                     @csrf

@@ -60,4 +60,6 @@ Route::post('/importer-bouteilles', [SAQController::class, 'scrapeSAQ']);
 Route::resource('celliers',  CellierController::class)->middleware('auth');
 Route::resource('bouteillecellier',  BouteilleCellierController::class)->middleware('auth');
 Route::get('/indexCellier/{cellier_id}',  [BouteilleController::class, 'indexCellier'])->name('bouteilles.indexCellier')->middleware('auth');
-Route::post('celliers/{id}/updateQuantite',  [BouteilleCellierController::class, 'updateQuantite'])->name('updateQuantite')->middleware('auth');;
+Route::post('celliers/{id}/updateQuantite',  [BouteilleCellierController::class, 'updateQuantite'])->name('updateQuantite')->middleware('auth');
+
+Route::post('ajouter/{id}',  [BouteilleCellierController::class, 'ajouterbouteilleaucelleir'])->name('ajouterBouteilleCellier')->middleware('auth');
