@@ -29,6 +29,7 @@
                             <p>{{$bouteille->description}}</p>
                             <h3>{{$bouteille->prix_saq}} $</h3>
                             <div class="btn-carte">
+<<<<<<< HEAD
                                
                                 <a href="/details/{{$bouteille->id}}">Détails</a>
                                 @if(isset($cellier->id))
@@ -37,7 +38,17 @@
                                         <input type="hidden" name="cellier_id" value="{{$cellier->id}}" />
                                         <input id="{{ $bouteille->id }}" type="hidden" name="bouteille_id" value="{{ $bouteille->id }}" />
                                         <input type="hidden" name="quantite" value="1">
-                                        <button type="submit" class="btn-carte-btn" >Ajouter</button>                   
+                                        <button type="submit" class="btn-carte-btn">Ajouter</button>                   
+=======
+                                <a href="/details/{{$bouteille->id}}">Détails</a>
+                                <form id="form_cellier" action="{{route('bouteille-cellier.store')}}" method="POST">
+                                    @csrf
+                                    @if(isset($cellier->id))
+                                    <input type="hidden" name="cellier_id" value="{{$cellier->id}}">
+                                    @endif
+                                    <input type="hidden" name="bouteille_id" value="{{ $bouteille->id }}">
+                                    <input type="hidden" name="quantite" value="1">
+>>>>>>> 7741cf0daab9451f4351f4a6fb976b63954f3cb4
                                 </form>
                                 <a href="javascript:void(0)" @if(isset($cellier->id)) onclick="$('#form_cellier').submit()" @else onclick="alert('Veuillez dabord ajouter un cellier')" @endif   >Ajouter à mon cellier</a>
 

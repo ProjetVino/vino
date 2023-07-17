@@ -39,7 +39,6 @@ class BouteilleCellierController extends Controller
     public function store(Request $request)
     {
        $test = BouteilleCellier::where('cellier_id','=',$request->cellier_id)->where('bouteille_id','=',$request->bouteille_id);
-
         if($test->count()==0){
             $celliers=BouteilleCellier::create([
                 'cellier_id'=>$request->cellier_id,
@@ -53,6 +52,11 @@ class BouteilleCellierController extends Controller
                 ->where('bouteille_id', $request->bouteille_id)
                 ->update(['quantite' => $test->first()->quantite + 1]);
         }
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> 11a44d886d1118867dfd27d08eef97de0577b8d9
 
         return redirect()->route('celliers.show',$request->cellier_id)->with('success','success');
 
@@ -102,8 +106,24 @@ class BouteilleCellierController extends Controller
     {
         $cellier_id = Cellier::find(BouteilleCellier::find($id)->first()->cellier_id);
         BouteilleCellier::destroy($id);
-
         return redirect()->route('celliers.show',$cellier_id)->with('success','delete');
 
+    }
+
+    public function updateQuantite(Request $request)
+    {
+
+            $data = $request->all();
+
+$quantite=$data["quantite"];
+$id=$data["idcb"]["_value"];
+
+        BouteilleCellier::where('id','=',$id) //
+            ->update(['quantite' => $quantite]);
+
+        $cellier_id = BouteilleCellier::find($id)->first()->cellier_id;
+
+
+        return response()->json(['success' => 'update', 'cellier_id' => $cellier_id]);
     }
 }

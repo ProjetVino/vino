@@ -131,8 +131,8 @@
 }
 
 .carte h2{
-   font-size: 14px;  
-   color: #690102; 
+   font-size: 14px;
+   color: #690102;
 }
 
 .carte p {
@@ -141,7 +141,7 @@
 }
 
 .carte h3 {
-    font-size: 14px; 
+    font-size: 14px;
     color: #690102;
 }
 
@@ -176,7 +176,7 @@
 
 .pagination .page-item.active .page-link {
     background-color: #ab9b9b;
-    border-color: #ab9b9b; 
+    border-color: #ab9b9b;
 }
 
 .pagination .page-item .page-link {
@@ -286,7 +286,6 @@ main {
 
 .bi-trash {
     color: #690102; }
-    
 .btn-carte-btn {
     font-size: 9px;
     color: #690102;
