@@ -64,5 +64,6 @@
         @endif
     </div>
     @stack('js')
+    <script src="{{ asset('js/popUp.js') }}"></script> <!-- Inclure le fichier JavaScript de popup -->
 </body>
 </html>
