@@ -20,16 +20,26 @@
             </section>
 
             <section class="catalogue">
-                <div class="row text-center carte">
+                <div class="row text-center carte" id="carte-cellier">
                         @forelse($celliers as $cellier)
 
                             <div class="col-md-3 card mb-1 mr-1">
                                 <div class="card-body text-carte">
-                                    <h2 class="card-title">{{ $cellier->nom  }}</h2>
+                                    <div class="titre-icons">
+                                        <div>
+                                        <a href="{{route('celliers.show',$cellier->id)}}"><h2 class="card-title">{{ $cellier->nom  }}</h2></a>
+                                        </div>
+                                        <div class="icons">
+                                        <img src="/assets/crayon.png" alt="Ícone" class="icon">
+                                        <img src="/assets/poubelle.png" alt="Ícone" class="icon">
+                                        </div>
+                                    </div>
+
+                                    </h2>
                                     <p class="card-subtitle mb-2 text-muted">{{ $cellier->note }}</p>
 
                                     <p>Vin rouge : 3 | Vin blanc : 4 | Vin rosé : 12</p>
-                                    <div class="form-horizontal form-inline text-center btn-carte">
+                                    <!-- <div class="form-horizontal form-inline text-center btn-carte">
                                         <a href="{{route('celliers.show',$cellier->id)}}" class="card-link"> Détails</a>
                                             <a href="{{route('celliers.edit',$cellier->id)}}" class="card-link">Modifier</a>
                                             <form  action="{{route('celliers.destroy',$cellier->id)}}" method="POST">
@@ -37,7 +47,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                             </form>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
 
