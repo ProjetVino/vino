@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('titre', 'MES CELLIERS')
 @section('content')
-        <main>
+        <main class="main-content">
             <section class="container">
                 <div class="titre-section">
-                    <h1>Mes Celliers  <span> > </span></h1>
+                    <h2>Mes Celliers  <span> > </span></h2>
                 </div>
                 <!-- <div class="recherche">
                     <img src="assets/lupe.png" alt="lupe">
@@ -12,11 +12,18 @@
                 </div> -->
             </section>
 
+            <section>
+                <a href=" {{ route('celliers.create') }} " class="align-right">
+                    <img src="assets/add.png" alt="add">
+                    Ajouter un cellier
+                </a>
+            </section>
+
             <section class="catalogue">
                 <div class="row text-center carte">
                         @forelse($celliers as $cellier)
 
-                            <div class="col-md-3 card mb-1 mr-1" style="width: 18rem;">
+                            <div class="col-md-3 card mb-1 mr-1">
                                 <div class="card-body text-carte">
                                     <h2 class="card-title">{{ $cellier->nom  }}</h2>
                                     <p class="card-subtitle mb-2 text-muted">{{ $cellier->note }}</p>
@@ -43,19 +50,12 @@
                               </div>
             </section>
 
-
             <section class="pagination">
                 <!-- Pagination -->
                 @include('../pagination.pagination', ['paginator' => $celliers])
             </section>
 
 
-            <section>
-                <a href=" {{ route('celliers.create') }} " class="align-right">
-                    <img src="assets/add.png" alt="add">
-                    Ajouter un cellier
-                </a>
-            </section>
 
         </main>
 @endsection

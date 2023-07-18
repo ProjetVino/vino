@@ -39,10 +39,10 @@
 
         <div class="auth-form-options-container">
             <div>
-            <input type="checkbox" name="check" />
-            <label for="check" class="auth-form-text">Se souvenir de moi</label>
+           <!--  <input type="checkbox" name="check" /> -->
+           <!--  <label for="check" class="auth-form-text">Se souvenir de moi</label> -->
             </div>
-            <a href="/" class="auth-form-text">Mot de passe oublié?</a>
+           <!--  <a href="/" class="auth-form-text">Mot de passe oublié?</a> -->
         </div>
         <input type="submit" class="auth-form-input-submit" value="Connexion" />
     </form>

@@ -1,19 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Oswald&family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Oswald&family=Vina+Sans&display=swap');
+
+
 /* Header */
 
 .header-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-image: url('/assets/background.jpg');
     background-size: cover;
     background-position: center;
-  }
-  
+    z-index: 9999; /* Adicione um valor alto para garantir que o header fique acima dos outros elementos */
+}
 
+  
 /* Navigation */
 
 .nav-logo {
     position: absolute;
-    top: 50px;
+    top: 15px;
 
-    padding: 2px;
     font-size: 20px;
 
     width: 70px;
@@ -32,7 +42,7 @@
 }
 
 .nav-bar {
-    padding: 90px;
+    padding: 50px;
 }
 
 .nav-bar-logo {
@@ -47,6 +57,11 @@
     padding-top: 20px;
 }
 
+/* Main */
+
+.main-content {
+    padding-top: 100px; /* Adicione a altura do seu header fixo aqui */
+}
 
 
 /* Container */
@@ -133,8 +148,9 @@
 }
 
 .carte h2{
-   font-size: 14px;
+   font-size: 16px;
    color: #690102;
+   font-family: 'Oswald', sans-serif;
 }
 
 .carte p {
@@ -165,6 +181,7 @@
     color: #690102;
     background-color: rgb(216, 214, 212);
     padding: 4px 10px;
+    text-decoration: none;
 }
 
 /* Pagination */
@@ -173,6 +190,8 @@
     font-size: 12px;
     color: #690102;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -197,7 +216,7 @@
 .details-category {
     font-weight: 600;
     color: #6b141a;
-    font-size: 12px;
+    font-size: 14px;
     padding: 0.5rem;
 }
 
@@ -220,27 +239,42 @@
 .product-name {
     color: #6b141a;
     margin-bottom: 1.5rem;
+    font-size: 20px;
+    max-width: 30ch;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
 }
 
 .product-description {
     color: #6b141a;
     margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: center;
 }
 
 .product-code {
     color: #aaa;
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
 }
 
 .product-image-container {
-    width: 100%;
+    width: 100vw;
     background-color: #eee;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
+
     object-fit: contain;
+}
+
+.product-image-container img{
+    height: 200px;
 }
 
 .product-image {
@@ -248,28 +282,27 @@
 }
 
 .product-cart {
-    width: 100%;
     padding: 1.5rem 2rem;
-    border-top: 1px solid #6b141a;
-
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .product-price {
     color: #6b141a;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 500;
     padding: 0 1rem 0.2rem;
-    border-bottom: 2px solid #6b141a;
+    text-decoration: none;
+
 }
 
 .product-add-cart-btn {
-    color: #6b141a;
+    
+    color: #ffffff;
     border: none;
     padding: 0.7rem;
-    background-color: #ccc;
+    font-size: small;
+    background-color: #6b141a;
     cursor: pointer;
 }
 
@@ -287,6 +320,14 @@
     color: #690102;
     text-align: center;
     font-weight: normal;
+}
+
+.titre-section h2{
+    font-size: 15px;
+}
+
+.titre-section h5{
+    font-size: 15px;
 }
 
 .detail {
@@ -315,6 +356,12 @@
 
 .align-right img {
     height: 14px;
+}
+
+.vide {
+    color: #690102;
+    font-size: 15px;
+
 }
 
 /* Footer */
@@ -383,7 +430,7 @@ main {
     background-color: rgb(216, 214, 212);
     padding: 4px 10px;
     border: none;
-    text-decoration: underline;
+    text-decoration: none;
 
 }
 

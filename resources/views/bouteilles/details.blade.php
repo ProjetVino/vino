@@ -1,31 +1,38 @@
 @extends('layouts.app')
 @section('titre', 'DETAILS')
 @section('content')
-<main>
+<main class="main-content">
     <div class="details-container">
         <span class="details-category">
-            <a heref="/">Vins</a>
-            &#62;
-            <a heref="/">Rouge</a>
+                <p>
+                    @if ($bouteille->type_id === 1)
+                        Vin Blanc
+                    @elseif ($bouteille->type_id === 2)
+                        Vin Rouge
+                    @elseif ($bouteille->type_id === 3)
+                        Vin Rosé
+                    @endif
+                </p>
         </span>
-
             <section class="detail">
                 <div class="detail-text">
-                    <p>{{$bouteille->type_id}}</p>
-                    <h2>{{$bouteille->nom}}</h2>
-                    <p>{{$bouteille->description}}</p>
-                    <p>Code SAQ : {{$bouteille->code_saq}}</p>
+    
+                    <h2 class="product-name">{{$bouteille->nom}}</h2>
+                    <p class="product-description">{{$bouteille->description}}</p>
+                    <p class="product-code">Code SAQ : {{$bouteille->code_saq}}</p>
                 </div>
-                <div class="detail-img">
+                <div class="product-image-container">
                     <img src="{{$bouteille->url_img}}" alt="bouteille">
                 </div>
-                <div class="btn-carte">
-                    <a href="#">{{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $</a>
-                    <a href="#">Ajouter à mon celier</a>
+                <div class="product-cart">
+                    <a class="product-price" href="#">{{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $</a>
+                    <input type="button" class="product-add-cart-btn" onclick="ajouterAuCellier(event)" data-id="{{$bouteille->id}}" value="Ajouter à mon cellier">
                 </div>
             </section>
             </div>
         </div>
     </div>
 </main>
+        <!-- Popup ajouter au cellier -->
+        @include('bouteilles.popup')
 @endsection

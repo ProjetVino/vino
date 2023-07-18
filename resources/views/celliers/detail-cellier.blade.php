@@ -14,11 +14,10 @@
     </style>
 @endpush
 @section('content')
-        <main>
+        <main class="main-content">
             <section class="container">
                 <div class="titre-section">
-                    <h1>dgdfgfg</h1>
-                    <h2>cellier->note</h2>
+                    <h1 class="product-name">Nono Nono</h1>
                     <h5><i class="font-weight-bold">{{$cellier->bouteilles->count()}}</i> Bouteilles dans votre cellier</h5>
 
                 </div>
@@ -41,7 +40,7 @@
                 <div class="row text-center carte">
                     @forelse($bouteilles as $bouteille)
 
-                        <div class="col-md-3 card mb-1 mr-1" style="width: 18rem;">
+                        <div class="col-md-3 card mb-1 mr-1">
                         
                             <div class="card-body text-carte">
 
@@ -76,7 +75,7 @@
 
                     @empty
 
-                        <label>Pas de Celliers</label>
+                        <label class="vide">Pas de Celliers</label>
 
                     @endforelse
                       
