@@ -347,6 +347,10 @@ footer {
     color: #690102;
 }
 
+.gris p {
+    color: #8c8c8c;
+}
+
 .message-error{
     width: 100%;
     color: red;

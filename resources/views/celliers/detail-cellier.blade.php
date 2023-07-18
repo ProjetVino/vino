@@ -17,7 +17,7 @@
         <main>
             <section class="container">
                 <div class="titre-section">
-                    <h1>dgdfgfg</h1>
+                    <!-- <h1>dgdfgfg</h1> -->
                     <h2>cellier->note</h2>
                     <h5><i class="font-weight-bold">{{$cellier->bouteilles->count()}}</i> Bouteilles dans votre cellier</h5>
 
