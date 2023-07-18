@@ -40,7 +40,7 @@ class BouteilleCellierController extends Controller
     {
        $test = BouteilleCellier::where('cellier_id','=',$request->cellier_id)->where('bouteille_id','=',$request->bouteille_id);
         if($test->count()==0){
-            $celliers=BouteilleCellier::create([
+            $celliers = BouteilleCellier::create([
                 'cellier_id'=>$request->cellier_id,
                 'bouteille_id'=>$request->bouteille_id,
                 'quantite'=>$request->quantite,
@@ -48,11 +48,19 @@ class BouteilleCellierController extends Controller
             ]);
         }
         else{
-            BouteilleCellier::where('cellier_id', $request->cellier_id)
+           $celliers = BouteilleCellier::where('cellier_id', $request->cellier_id)
                 ->where('bouteille_id', $request->bouteille_id)
-                ->update(['quantite' => $test->first()->quantite + 1]);
+                ->update(['quantite' => $test->first()->quantite + $request->quantite]);
         }
-
+        // pour tester si je viens d'index & retourné message succès echec
+        if(isset($request->vue_source) &&  $request->vue_source == "index"){
+            if($celliers)
+             return response()->json(['message' => 'Ajout avec succès']);
+            else
+             return response()->json(['message' => 'Echec d\'ajout']);
+        } 
+           
+        else
         return redirect()->route('celliers.show',$request->cellier_id)->with('success','success');
 
     }
@@ -108,10 +116,10 @@ class BouteilleCellierController extends Controller
     public function updateQuantite(Request $request)
     {
 
-            $data = $request->all();
+        $data = $request->all();
 
-$quantite=$data["quantite"];
-$id=$data["idcb"]["_value"];
+        $quantite=$data["quantite"];
+        $id=$data["idcb"]["_value"];
 
         BouteilleCellier::where('id','=',$id) //
             ->update(['quantite' => $quantite]);
@@ -121,4 +129,6 @@ $id=$data["idcb"]["_value"];
 
         return response()->json(['success' => 'update', 'cellier_id' => $cellier_id]);
     }
+
+    
 }
