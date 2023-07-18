@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('titre', 'VINO')
 @section('content')
-        <main>
+        <main class="main-content">
             <section class="container">
                 <div class="titre">
                     <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>

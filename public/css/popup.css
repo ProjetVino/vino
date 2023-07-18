@@ -35,6 +35,8 @@ button.btn-ajouter {
 
 .popup h2 {
   margin-top: 0;
+  color: #690102;
+  font-family: 'Oswald', sans-serif;
 }
 
 .popup .formulaires {
