@@ -143,8 +143,47 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.carte .card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carte .card-title .icone-direita {
+    width: 6px; 
+    height: 6px; 
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.carte .icons img{
+    height: 20px;
+}
+
+
+.titre-icons {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.titre-icons a{
+    text-decoration: none;
+    text-decoration: underline;
+    color: #690102;
+}
+
 .carte img {
     height: 90px;
+}
+
+
+
+#carte-cellier h2{
+    font-size: 25px;
 }
 
 .carte h2{

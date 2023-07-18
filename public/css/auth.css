@@ -123,7 +123,7 @@
     min-height: 100vh;
 }
 .cellier-form-container {
-    border: 2px solid #690102;
+    /* border: 2px solid #690102; */
     padding: 3rem 3rem 3rem;
     width: 100%;
     max-width: 360px;
