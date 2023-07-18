@@ -35,9 +35,10 @@
         @if(empty(trim($__env->yieldContent('MasquerHeaderFooter'))))
         <footer>
             <div class="footer-items">
-                <div class="footer-item">
+                <div class="footer-item gris">
                     <a href="/index">
-                        <img src="{{asset('assets/profile.png')}}" alt="profile">
+                        <!-- <img src="{{asset('assets/profile.png')}}" alt="profile"> -->
+                        <img src="{{asset('assets/profile-gris.png')}}" alt="profile">
                     </a>
                     <p>Profile</p>
                 </div>
