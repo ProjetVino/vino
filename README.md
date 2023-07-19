@@ -16,5 +16,7 @@ Marche à suivre
 - ajout du framework VueJS, mais à date c'est en pause 
     pour tester "http://127.0.0.1:8000/test"
 
+- LIEN WEBDEV : https://e2296101.webdev.cmaisonneuve.qc.ca/vino/
+
 
 
