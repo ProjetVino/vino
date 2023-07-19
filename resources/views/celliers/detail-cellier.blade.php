@@ -17,8 +17,8 @@
         <main class="main-content">
             <section class="container">
                 <div class="titre-section">
-                    <h1 class="product-name">Nono Nono</h1>
-                    <h5><i class="font-weight-bold">{{$cellier->bouteilles->count()}}</i> Bouteilles dans votre cellier</h5>
+                    <h1 class="product-name">{{$cellier->nom}}</h1>
+                    <!-- <h5><i class="font-weight-bold">{{$cellier->bouteilles->count()}}</i> Bouteilles dans votre cellier</h5> -->
 
                 </div>
                 <div class="text-container">
@@ -32,11 +32,11 @@
 
 
             <section class="catalogue">
-                <div class="recherche">
+   <!--              <div class="recherche">
                     <img src="{{asset('assets/lupe.png')}}" alt="lupe">
                     <input id="search" type="text" placeholder="Rechercher un vin">
 
-                </div>
+                </div> -->
                 <div class="row text-center carte">
                     @forelse($bouteilles as $bouteille)
 
@@ -44,14 +44,14 @@
                         
                             <div class="card-body text-carte">
 
-                                <h2 class="card-title">{{ $bouteille->nom }}
+                                <h2 class="card-title-detail-cellier">{{ $bouteille->nom }}
 
                         
                                 </h2>
                                 <p class="card-subtitle mb-2 text-muted"> <img src="{{ $bouteille->image }}" alt="{{ $bouteille->image }}"></p>
 
                                 <p>{{ $bouteille->description }}</p>
-                                <h3>Prix :  {{ $bouteille->prix_saq }}   </h3>
+                                <h3>Prix :  {{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $   </h3>
                                 <p>
                                     Quantité : <input id="quantite" name="quantite" type="number" min="1" value="{{ $bouteille->pivot->quantite }}" width="auto">
 
@@ -62,7 +62,7 @@
                           <input id="idcb" type="hidden" value="{{$bouteille->pivot->id}}">
                                
                                <div class="btn-carte-trash">
-                                   <form onsubmit="return confirm('Etes-vous sur de vouloir supprimer la bouteille?');"  action="{{ route('bouteillecellier.destroy', $bouteille->pivot->id )}}" method="POST">
+                                   <form   action="{{ route('bouteillecellier.destroy', $bouteille->pivot->id )}}" method="POST">
                                        <button type="submit" class="btn btn-link card-link" value="">  <i class="bi bi-trash"></i></button>
                                        @csrf
                                        @method('DELETE')

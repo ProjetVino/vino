@@ -30,15 +30,15 @@
                                         <a href="{{route('celliers.show',$cellier->id)}}"><h2 class="card-title">{{ $cellier->nom  }}</h2></a>
                                         </div>
                                         <div class="icons">
-                                        <img src="/assets/crayon.png" alt="Ícone" class="icon">
-                                        <img src="/assets/poubelle.png" alt="Ícone" class="icon">
+                                        <a href="{{ route('modifier-cellier', ['id' => $cellier->id]) }}"> <img src="{{asset('assets/crayon.png')}}" alt="Ícone" title="Modifier Cellier" class="icon"> </a>
+                                       <a href="{{ route('supprimer-cellier', ['id' => $cellier->id]) }}"> <img src="{{asset('assets/poubelle.png')}}" alt="Ícone" title="Supprimer Cellier" class="icon"> </a>
                                         </div>
                                     </div>
 
                                     </h2>
                                     <p class="card-subtitle mb-2 text-muted">{{ $cellier->note }}</p>
 
-                                    <p>Vin rouge : 3 | Vin blanc : 4 | Vin rosé : 12</p>
+                                    <p>Nombre de boutelles : {{$cellier->bouteilles_count ?? 0}}</p>
                                     <!-- <div class="form-horizontal form-inline text-center btn-carte">
                                         <a href="{{route('celliers.show',$cellier->id)}}" class="card-link"> Détails</a>
                                             <a href="{{route('celliers.edit',$cellier->id)}}" class="card-link">Modifier</a>
