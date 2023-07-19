@@ -41,7 +41,8 @@ function envoyerFormulaire(idBouteille) {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error("Erreur lors de la requête");
+                console.log(response);
+                throw new Error("problème technique");
             }
         })
         .then((data) => {

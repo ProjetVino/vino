@@ -26,7 +26,7 @@ class CellierController extends Controller
         $celliers = Cellier::leftJoin('bouteilles_celliers', 'celliers.id', '=', 'bouteilles_celliers.cellier_id')
             ->select('celliers.*', DB::raw('SUM(bouteilles_celliers.quantite) as bouteilles_count'))
             ->where('celliers.user_id', Auth::user()->id)
-            ->groupBy('celliers.id')
+            ->groupBy('celliers.id','celliers.nom','celliers.note','celliers.user_id','celliers.created_at','celliers.updated_at')
             ->paginate(8);
 
         return view('celliers.mes-celliers',['celliers' => $celliers]);
