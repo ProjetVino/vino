@@ -109,10 +109,14 @@
 
 .auth-form-redirect {
     margin-top: 3rem;
-
     color: #690102;
-
 }
+
+.create-form-redirect {
+    color: #690102;
+}
+
+
 /*         Mehdi     */
 .cellier-container {
     display: flex;

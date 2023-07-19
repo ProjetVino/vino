@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Cellier;
 use App\Models\Bouteille;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 use function PHPUnit\Framework\isNull;
 
@@ -19,7 +20,15 @@ class CellierController extends Controller
      */
     public function index()
     {
-        $celliers = Cellier::where('user_id','=',Auth::user()->id)->paginate(8);
+    
+
+    
+        $celliers = Cellier::leftJoin('bouteilles_celliers', 'celliers.id', '=', 'bouteilles_celliers.cellier_id')
+            ->select('celliers.*', DB::raw('SUM(bouteilles_celliers.quantite) as bouteilles_count'))
+            ->where('celliers.user_id', Auth::user()->id)
+            ->groupBy('celliers.id','celliers.nom','celliers.note','celliers.user_id','celliers.created_at','celliers.updated_at')
+            ->paginate(8);
+
         return view('celliers.mes-celliers',['celliers' => $celliers]);
 
     }
@@ -81,7 +90,8 @@ class CellierController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cellier = Cellier::find($id);
+        return view('celliers.modifier',compact('cellier'));
     }
 
     /**
@@ -91,9 +101,25 @@ class CellierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // Validation du nom du cellier
+        $validatedData = $request->validate([
+            'nom' => 'required|min:2|max:100',
+            'note' => 'nullable',
+        ]);
+
+        if(!$validatedData)
+            return redirect()->back()->withErrors($validatedData)->withInput();
+
+        $cellier = Cellier::findOrFail($request->input('cellier_id'));
+
+        $cellier->nom = $validatedData['nom'];
+        $cellier->note = $validatedData['note'];
+
+        $cellier->save();
+
+        return redirect(route('celliers.index'));
     }
 
     /**
@@ -104,9 +130,8 @@ class CellierController extends Controller
      */
     public function destroy($id)
     {
-       // $cellier = Cellier::destroy($id);
-
-      //  return redirect(route('celliers.index'));
+        $cellier = Cellier::destroy($id);
+        return redirect(route('celliers.index'));
 
     }
 

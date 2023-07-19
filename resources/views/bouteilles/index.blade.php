@@ -39,7 +39,7 @@
                             <p>{{$bouteille->description}}</p>
                             <h3>{{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $</h3>
                             <div class="btn-carte">
-                                <a href="/details/{{$bouteille->id}}">Détails</a>
+                                <a href="{{ route('bouteilles.details', ['id' => $bouteille->id]) }}">Détails</a>
                                 <input type="button" class="btn-carte-btn" onclick="ajouterAuCellier(event)" data-id="{{$bouteille->id}}" value="Ajouter à mon cellier">
                             </div>
                         </div>

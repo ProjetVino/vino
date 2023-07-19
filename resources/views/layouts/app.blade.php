@@ -36,14 +36,14 @@
         <footer>
             <div class="footer-items">
                 <div class="footer-item gris">
-                    <a href="/index">
+                    <!-- <a href="{{ route('bouteilles.index') }}"> -->
                         <!-- <img src="{{asset('assets/profile.png')}}" alt="profile"> -->
-                        <img src="{{asset('assets/profile-gris.png')}}" alt="profile">
-                    </a>
+                        <img src="{{asset('assets/profilegris.png')}}" alt="profile">
+                    <!-- </a> -->
                     <p>Profile</p>
                 </div>
                 <div class="footer-item">
-                    <a href="/index">
+                    <a href="{{ route('bouteilles.index') }}">
                         <img src="{{asset('assets/bouteilles.png')}}" alt="bouteilles">
                     </a>
                     <p>Catalogue</p>
@@ -55,7 +55,7 @@
                     <p>Mes Celliers</p>
                 </div>
                 <div class="footer-item">
-                    <a href="/logout">
+                    <a href="{{ route('authentification.logut') }}">
                         <img src="{{asset('assets/logout.png')}}" alt="logout">
                     </a>
                     <p>Sortir</p>

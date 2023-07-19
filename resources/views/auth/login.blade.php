@@ -46,7 +46,6 @@
         </div>
         <input type="submit" class="auth-form-input-submit" value="Connexion" />
     </form>
-    <a href="/create" class="auth-form-redirect"
-    >Voulez-vous vous inscrire?</a>
+    <a href="{{route('user.create')}}" class="auth-form-redirect">Voulez-vous vous inscrire?</a>
 </main>
 @endsection

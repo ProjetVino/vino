@@ -37,7 +37,7 @@
                                         <input type="hidden" name="cellier_id" value="{{$cellier->id}}" />
                                         <input id="{{ $bouteille->id }}" type="hidden" name="bouteille_id" value="{{ $bouteille->id }}" />
                                         <input type="hidden" name="quantite" value="1">
-                                        <button type="submit" class="btn-carte-btn" >Ajouter</button>                   
+                                        <button type="submit" class="btn-carte-btn" >Ajouter à mon cellier</button>                   
                                 </form>
                               
                                 @endif

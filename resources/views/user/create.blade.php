@@ -76,6 +76,7 @@
         <div class="auth-form-text">* le Mot de passe doit avoir au moins 6 caractèrs, une majiscule, un caractère spéciale </div> 
       </form>
       <a href="/login" class="auth-form-text">Connexion</a>
+      <a href="{{route('login')}}" class="create-form-redirect">Se connecter</a>
        
     </main>
 
