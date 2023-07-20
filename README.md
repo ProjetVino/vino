@@ -18,10 +18,5 @@ Marche à suivre
 
 - LIEN WEBDEV : https://e2296101.webdev.cmaisonneuve.qc.ca/vino/
 
-- test pour maitriser git
-- test pour github readme
-- sdfsdfsdfdfdsf
-
-- Site de bouteilles: TheVine
 
 
