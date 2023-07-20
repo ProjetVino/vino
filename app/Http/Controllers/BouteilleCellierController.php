@@ -7,6 +7,7 @@ use App\Models\Cellier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isNull;
+use Illuminate\Support\Facades\DB;
 
 class BouteilleCellierController extends Controller
 {
@@ -99,17 +100,17 @@ class BouteilleCellierController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    
+    public function destroy(Request $request)
     {
-        $cellier_id = Cellier::find(BouteilleCellier::find($id)->first()->cellier_id);
-        BouteilleCellier::destroy($id);
-        return redirect()->route('celliers.show',$cellier_id)->with('success','delete');
+      
+
+      
+        $cellier_id = BouteilleCellier::find($request->idbc)->first()->cellier_id;
+        BouteilleCellier::destroy($request->idbc);
+
+        return response()->json(['success' => 'delete']);
+       // return redirect()->route('celliers.show',$cellier_id)->with('success','delete');
 
     }
 
@@ -119,7 +120,7 @@ class BouteilleCellierController extends Controller
         $data = $request->all();
 
         $quantite=$data["quantite"];
-        $id=$data["idcb"]["_value"];
+        $id=$data["idcb"];
 
         BouteilleCellier::where('id','=',$id) //
             ->update(['quantite' => $quantite]);
@@ -130,5 +131,44 @@ class BouteilleCellierController extends Controller
         return response()->json(['success' => 'update', 'cellier_id' => $cellier_id]);
     }
 
-    
+    // recherche de bouteilles
+    public function rechercherCellier(Request $request)
+    {
+        $searchQuery = strtolower($request->searchQuery); // Convertir la recherche en minuscules pour rendre la recherche insensible à la casse
+        $cellier_id = $request->cellierid;
+        $cellier = Cellier::find($cellier_id);
+
+        $bouteilles = DB::table('bouteilles')
+            ->select('bouteilles.nom','bouteilles.image','bouteilles.description','bouteilles.prix_saq','bouteilles_celliers.id','bouteilles_celliers.cellier_id','bouteilles_celliers.bouteille_id','bouteilles_celliers.quantite')
+            ->join('bouteilles_celliers','bouteilles_celliers.bouteille_id','=','bouteilles.id')
+            ->where('bouteilles_celliers.cellier_id','=',$cellier_id)
+        ->where(function ($query) use ($searchQuery) {
+            $query->whereRaw('LOWER(nom) LIKE ?', ['%'.$searchQuery.'%'])
+                ->orWhereRaw('LOWER(description) LIKE ?', ['%'.$searchQuery.'%'])
+                ->orWhereRaw('LOWER(pays) LIKE ?', ['%'.$searchQuery.'%'])
+                ->orWhere('prix_saq', 'LIKE', '%'.$searchQuery.'%')
+                ->orWhere('format', 'LIKE', '%'.$searchQuery.'%')
+                ->orWhere(function ($query) use ($searchQuery) {
+                    // Gérer la recherche par type_id en utilisant les codes 1, 2 ou 3
+                    if ($searchQuery === 'vin blanc') {
+                        $query->where('type_id', 1);
+                    } elseif ($searchQuery === 'vin rouge') {
+                        $query->where('type_id', 2);
+                    } elseif ($searchQuery === 'vin rosé') {
+                        $query->where('type_id', 3);
+                    }
+                })
+            ;
+        })->paginate(8);
+
+        $bouteilles->withPath('/rechercherCellier')->appends(request()->except('_token'));
+
+
+        return view('celliers.detail-cellier',compact('cellier','bouteilles','searchQuery'));
+
+
+    }
+
+
+
 }

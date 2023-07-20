@@ -62,11 +62,11 @@ Route::get('/supprimer/cellier/{id}', [CellierController::class, 'destroy'])->na
 Route::get('/modifier/cellier/{id}', [CellierController::class, 'edit'])->name('modifier-cellier')->middleware('auth');
 Route::post('/modifier/cellier/{id}', [CellierController::class, 'update'])->middleware('auth');
 
-
-// routes pour la vue cellier
-Route::resource('celliers',  CellierController::class)->middleware('auth');
-Route::resource('bouteillecellier',  BouteilleCellierController::class)->middleware('auth');
-Route::get('indexCellier/{cellier_id}',  [BouteilleController::class, 'indexCellier'])->name('bouteilles.indexCellier')->middleware('auth');
-Route::post('celliers/{id}/updateQuantite',  [BouteilleCellierController::class, 'updateQuantite'])->name('updateQuantite')->middleware('auth');
-
-Route::post('ajouter/{id}',  [BouteilleCellierController::class, 'ajouterbouteilleaucelleir'])->name('ajouterBouteilleCellier')->middleware('auth');
+    // routes pour la vue cellier
+    Route::resource('celliers',  CellierController::class)->middleware('auth');
+    Route::resource('bouteillecellier',  BouteilleCellierController::class)->middleware('auth');
+    Route::get('/indexCellier/{cellier_id}',  [BouteilleController::class, 'indexCellier'])->name('bouteilles.indexCellier')->middleware('auth');
+    Route::post('celliers/{id}/updateQuantite',  [BouteilleCellierController::class, 'updateQuantite'])->name('updateQuantite')->middleware('auth');
+    Route::post('celliers/{id}/bouteillecellier-destroy',  [BouteilleCellierController::class, 'destroy'])->name('destroyBC')->middleware('auth');
+    Route::post('rechercherCellier', [BouteilleCellierController::class, 'rechercherCellier'])->name('rechercherCellier');
+    Route::post('ajouter/{id}',  [BouteilleCellierController::class, 'ajouterbouteilleaucelleir'])->name('ajouterBouteilleCellier')->middleware('auth');
