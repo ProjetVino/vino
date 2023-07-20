@@ -17,7 +17,7 @@ Marche à suivre
     pour tester "http://127.0.0.1:8000/test"
 
 - LIEN WEBDEV : https://e2296101.webdev.cmaisonneuve.qc.ca/vino/
-- test pour comprendre readme
+- test pour github readme
 - sdfsdfsdfdfdsf
 
 
