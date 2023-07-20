@@ -472,7 +472,7 @@ main {
 .bi-trash {
     color: #690102; 
 }
-.bi-arrow-clockwise {
+.bi-save {
     color: #690102; 
 }
 .btn-carte-btn {
@@ -483,6 +483,11 @@ main {
     border: none;
     text-decoration: none;
 
+}
+.toast{
+    position: absolute;
+    bottom: 100px;
+    right: 10px;
 }
 
 
