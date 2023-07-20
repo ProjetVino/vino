@@ -472,6 +472,9 @@ main {
 .bi-trash {
     color: #690102; 
 }
+.bi-arrow-clockwise {
+    color: #690102; 
+}
 .btn-carte-btn {
     font-size: 9px;
     color: #690102;
