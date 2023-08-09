@@ -16,7 +16,7 @@
                      @csrf
                     <div class="recherche">
                         <img src="{{asset('assets/lupe.png')}}" alt="lupe">
-                        <input id="rechercheInput" name="valeur" type="text" placeholder="Rechercher un vin" value="{{   $searchQuery ?? '' }}" >
+                        <input id="rechercheInput" name="valeur" type="text" placeholder="Rechercher un vin dans le catalogue" value="{{   $searchQuery ?? '' }}" >
                     </div>
                 </form>
 

@@ -29,8 +29,6 @@
                 </div>
             </section>
 
-
-
             <section class="catalogue">
    <!--              <div class="recherche">
                     <img src="{{asset('assets/lupe.png')}}" alt="lupe">

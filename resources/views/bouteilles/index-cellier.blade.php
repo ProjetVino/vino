@@ -12,9 +12,15 @@
                        Cellier en cours :  {{ $cellier->nom }}
                     </a>
                 </div>
+                <div class="text-container">
+                    <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
+                        <img src="{{asset('assets/add.png')}}" alt="add">
+                        Ajouter une bouteille personalisée
+                    </a>
+                </div>
                 <div class="recherche">
                     <img src="{{asset('assets/lupe.png')}}" alt="lupe">
-                    <input type="text" placeholder="Rechercher un vin">
+                    <input type="text" placeholder="Rechercher un vin dans le catalogue">
                 </div>
             </section>
 
