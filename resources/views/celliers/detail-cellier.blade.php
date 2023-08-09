@@ -25,8 +25,6 @@
                 </div>
             </section>
 
-
-
             <section class="catalogue">
 
                     <form method="post" action="{{ route('rechercherCellier') }}">
