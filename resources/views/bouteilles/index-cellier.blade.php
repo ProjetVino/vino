@@ -7,10 +7,9 @@
                     <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
                 <div>
-                    <a href="#" class="text-container">
-                      
+                    <div class="text-container">
                        Cellier en cours :  {{ $cellier->nom }}
-                    </a>
+                    </div>
                 </div>
                 <div class="text-container">
                     <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
@@ -45,7 +44,6 @@
                                         <input type="hidden" name="quantite" value="1">
                                         <button type="submit" class="btn-carte-btn" >Ajouter à mon cellier</button>                   
                                 </form>
-                              
                                 @endif
                             </div>
                         </div>
