@@ -6,11 +6,23 @@
                 <div class="titre">
                     <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
-                <div>
+                <div> 
+                @if (isset($sourcePage) && $sourcePage == 'ajoutBouteilleCellier' )
+                    <div class="text-container">
+                       Cellier selectionné :  {{ $cellier->nom }}
+                    </div>
+                    <div class="text-container">
+                        <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
+                            <img src="{{asset('assets/add.png')}}" alt="add">
+                            Ajouter une bouteille personalisée
+                        </a>
+                    </div>                    
+                @else
                     <a href="{{ route('celliers.create') }}" class="text-container">
                         <img src="{{asset('assets/add.png')}}" alt="add">
                         Ajouter un cellier
                     </a>
+                @endif
                 </div>
                 <form method="post" action="{{ route('recherche') }}">
                      @csrf
@@ -27,7 +39,7 @@
             <section id="bouteillesContainer" class="catalogue">
 
             @if ($bouteilles->isEmpty())
-                <div class="carte">
+                <div class="carte centrer-text">
                   <p>Aucune bouteille trouvée!</p>
                 </div>
             @else
@@ -45,7 +57,7 @@
                             <h3>{{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $</h3>
                             <div class="btn-carte">
                                 <a href="{{ route('bouteilles.details', ['id' => $bouteille->id]) }}">Détails</a>
-                                <input type="button" class="btn-carte-btn" onclick="ajouterAuCellier(event)" data-id="{{$bouteille->id}}" value="Ajouter à mon cellier">
+                                <input type="button" class="btn-carte-btn" onclick="ajouterAuCellier(event)" data-id="{{$bouteille->id}}" data-cellier_id="{{ ($sourcePage == 'ajoutBouteilleCellier')?$cellier->id:null}}" value="Ajouter à mon cellier">   
                             </div>
                         </div>
                     </div>

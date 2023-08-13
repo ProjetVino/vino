@@ -1,6 +1,13 @@
 
 function ajouterAuCellier(event) {
     let idBouteille = event.currentTarget.getAttribute("data-id");
+    let idcellier = event.currentTarget.getAttribute("data-cellier_id");
+    console.log(idcellier);
+    const selectbox = document.getElementById("cellier");
+    if (idcellier !== null && idcellier !== '') {
+        selectbox.value = idcellier;
+        selectbox.disabled = true;
+    }
     afficherPopup();
 
     let ajouterButton = document.getElementById("popup-ajouter");

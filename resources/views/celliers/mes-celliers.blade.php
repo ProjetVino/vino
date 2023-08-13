@@ -3,13 +3,12 @@
 @section('content')
         <main class="main-content">
             <section class="container">
-                <div class="titre-section">
-                    <h2>Mes Celliers  <span> > </span></h2>
+                <div class="titre">
+                    <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
-                <!-- <div class="recherche">
-                    <img src="assets/lupe.png" alt="lupe">
-                    <input type="text" placeholder="Rechercher un vin">
-                </div> -->
+                <div class="titre-section">
+                    <h2>Mes Celliers </h2>
+                </div>
             </section>
 
             <section>
