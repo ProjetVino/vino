@@ -28,7 +28,7 @@ class AuthController extends Controller
         }
         $user = Auth::getProvider()->retrieveByCredentials($infoConnexion);
         Auth::login($user);
-        return redirect(route('bouteilles.index'));
+         return redirect(route('celliers.index'));
     }
 
 

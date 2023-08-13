@@ -15,8 +15,10 @@
                 <form method="post" action="{{ route('recherche') }}">
                      @csrf
                     <div class="recherche">
-                        <img src="{{asset('assets/lupe.png')}}" alt="lupe">
                         <input id="rechercheInput" name="valeur" type="text" placeholder="Rechercher un vin dans le catalogue" value="{{   $searchQuery ?? '' }}" >
+                        <a href="{{ route('recherche') }}" onclick="event.preventDefault(); document.querySelector('form').submit();">
+                            <img src="{{asset('assets/lupe.png')}}" alt="lupe">
+                        </a>
                     </div>
                 </form>
 
@@ -29,6 +31,9 @@
                   <p>Aucune bouteille trouvée!</p>
                 </div>
             @else
+             @if (isset($nbBouteilles) && !empty($nbBouteilles))
+                <div class="details-nbBouteilles">{{$nbBouteilles}}</div>
+            @endif
                 @foreach ($bouteilles as $bouteille)
                     <div class="carte">
                         <div>

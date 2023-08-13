@@ -27,7 +27,7 @@
                                 <div class="card-body text-carte">
                                     <div class="titre-icons">
                                         <div>
-                                        <a href="{{route('celliers.show',$cellier->id)}}"><h2 class="card-title">{{ $cellier->nom  }}</h2></a>
+                                             <h2 class="card-title">{{ $cellier->nom  }}</h2>
                                         </div>
                                         <div class="icons">
                                         <a href="{{ route('modifier-cellier', ['id' => $cellier->id]) }}"> <img src="{{asset('assets/crayon.png')}}" alt="Ícone" title="Modifier Cellier" class="icon"> </a>
@@ -39,15 +39,9 @@
                                     <p class="card-subtitle mb-2 text-muted">{{ $cellier->note }}</p>
 
                                     <p>Nombre de boutelles : {{$cellier->bouteilles_count ?? 0}}</p>
-                                    <!-- <div class="form-horizontal form-inline text-center btn-carte">
-                                        <a href="{{route('celliers.show',$cellier->id)}}" class="card-link"> Détails</a>
-                                            <a href="{{route('celliers.edit',$cellier->id)}}" class="card-link">Modifier</a>
-                                            <form  action="{{route('celliers.destroy',$cellier->id)}}" method="POST">
-                                                <a type="submit" class="btn btn-link card-link" value=""> Supprimer</a>
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>
-                                    </div> -->
+                                    <div class="btn-carte centrer-bouton">
+                                        <a href="{{route('celliers.show',$cellier->id)}}">Détails</a>
+                                    </div>
                                 </div>
                             </div>
 

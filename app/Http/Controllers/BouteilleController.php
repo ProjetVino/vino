@@ -18,8 +18,8 @@ class BouteilleController extends Controller
     public function index()
     {
         $bouteilles = Bouteille::paginate(30);
-        
-         return view('bouteilles.index',['bouteilles' => $bouteilles]);
+        $nombreDeBouteilles = Bouteille::count().' bouteille(s) trouvée(s).';
+         return view('bouteilles.index',['bouteilles' => $bouteilles,  'nbBouteilles' => $nombreDeBouteilles]);
     }
 
     // recherche de bouteilles
@@ -44,11 +44,13 @@ class BouteilleController extends Controller
                     }
                 });
         })->paginate(30);
+        $nombreDeBouteilles = $bouteilles->total().' bouteille(s) trouvée(s).';
 
        $bouteilles->withPath('/recherche')->appends(request()->except('_token'));
           return view('bouteilles.index', [
                     'bouteilles' => $bouteilles,
-                    'searchQuery' => $searchQuery
+                    'searchQuery' => $searchQuery,
+                    'nbBouteilles' => $nombreDeBouteilles
         ]);
         
     }

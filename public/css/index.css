@@ -221,6 +221,7 @@
 }
 
 .btn-carte a{
+    font-weight: 800;
     font-size: 9px;
     color: #690102;
     background-color: rgb(216, 214, 212);
@@ -259,8 +260,15 @@
 
 .details-category {
     font-weight: 600;
-    color: #6b141a;
+    color: #8d8686;
     font-size: 14px;
+    padding: 0.5rem;
+}
+
+.details-nbBouteilles{
+    font-weight: 600;
+    color: #8d8686;
+    font-size: 12px;
     padding: 0.5rem;
 }
 
@@ -476,13 +484,16 @@ main {
     color: #690102; 
 }
 .btn-carte-btn {
+    font-weight: 800;
     font-size: 9px;
     color: #690102;
     background-color: rgb(216, 214, 212);
     padding: 4px 10px;
     border: none;
     text-decoration: none;
-
+}
+.centrer-bouton{
+    justify-content: center;
 }
 .toast{
     position: absolute;
