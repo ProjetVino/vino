@@ -28,7 +28,9 @@
                         @csrf
                         <div class="recherche">
                             <input id="rechercheInput" name="searchQuery" type="text" placeholder="Rechercher un vin" value="{{   $searchQuery ?? '' }}" >
-                             <img src="{{asset('assets/lupe.png')}}" alt="lupe">
+                             <a href="{{ route('rechercherCellier') }}"  onclick="event.preventDefault(); document.querySelector('form').submit();">
+                                <img src="{{asset('assets/lupe.png')}}" alt="lupe">
+                             </a>
                             <input name="cellierid" type="hidden" value="{{$cellier->id}}">
                         </div>
                     </form>
