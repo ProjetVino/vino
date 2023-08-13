@@ -14,12 +14,12 @@
                         </h1>
                         <h5><i class="font-weight-bold">{{$cellier->bouteilles->sum('pivot.quantite')}}</i> bouteille(s) dans votre cellier</h5>
                     </div>
-                <div class="text-container">
-                    <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
-                        <img src="{{asset('assets/add.png')}}" alt="add">
-                        Ajouter une bouteille
-                    </a>
-                </div>
+                    <div class="text-container">
+                        <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
+                            <img src="{{asset('assets/add.png')}}" alt="add">
+                            Ajouter une bouteille
+                        </a>
+                    </div>
             </section>
 
             <section class="catalogue">

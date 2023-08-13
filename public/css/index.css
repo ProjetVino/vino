@@ -377,6 +377,12 @@
 .titre-section h2{
     font-size: 15px;
 }
+ .titre-entete{
+    font-size: 10px;
+    color: #690102;
+    text-align: center;
+    
+}
 
 .titre-section h5{
     font-size: 15px;

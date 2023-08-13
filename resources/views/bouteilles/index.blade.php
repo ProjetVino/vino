@@ -6,10 +6,10 @@
                 <div class="titre">
                     <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
-                <div> 
+               
                 @if (isset($sourcePage) && $sourcePage == 'ajoutBouteilleCellier' )
-                    <div class="text-container">
-                       Cellier selectionné :  {{ $cellier->nom }}
+                    <div class="titre-section">
+                       <h1>Cellier :  {{ $cellier->nom }}</h1>
                     </div>
                     <div class="text-container">
                         <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
@@ -23,7 +23,7 @@
                         Ajouter un cellier
                     </a>
                 @endif
-                </div>
+                
                 <form method="post" action="{{ route('recherche') }}">
                      @csrf
                     <div class="recherche">
