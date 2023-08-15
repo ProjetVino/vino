@@ -14,7 +14,7 @@
         @else
             <div class="formulaires">
                 <label for="quantite">Quantité :</label>
-                <input type="number" id="quantite" name="quantite" min=1 value="1" required>
+                <input type="number" id="quantite" name="quantite" min=1 value="1" required  pattern="[0-9]+" oninput="validNumberInput(this)" onblur="validateAndCorrect(this)">
                 <label for="cellier">Cellier :</label>
                 <select id="cellier" name="cellier" required>
                     <option value="" selected>Coisir un cellier</option>

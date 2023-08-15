@@ -71,5 +71,6 @@
     </div>
     @stack('js')
     <script src="{{ asset('js/popUp.js') }}"></script> <!-- Inclure le fichier JavaScript de popup -->
+    <script src="{{ asset('js/validation.js') }}"></script> 
 </body>
 </html>

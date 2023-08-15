@@ -19,7 +19,7 @@
                         <h1 data-toggle="tooltip" data-placement="top" title="{{ $cellier->note }}">
                         {{ $cellier->nom }}
                         </h1>
-                        <h5><i class="font-weight-bold">{{$cellier->bouteilles->sum('pivot.quantite')}}</i> bouteille(s) dans votre cellier</h5>
+                       <!--  <h5><i id="nbBouteilles" class="font-weight-bold">{{$cellier->bouteilles->sum('pivot.quantite')}}</i> bouteille(s) dans votre cellier</h5> -->
                     </div>
                     <div class="text-container">
                         <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
@@ -58,7 +58,7 @@
 
                                 <p>{{ $bouteille->description }}</p>
                                 <h3>Prix : {{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $  </h3>
-                                    Quantité : <input  @if(isset($searchQuery)) id="{{ $bouteille->id }}" @else id="{{ $bouteille->pivot->id }}" @endif  @if(isset($searchQuery)) name="{{ $bouteille->id }}" @else name="{{ $bouteille->pivot->id }}" @endif  type="number" min="1" @if(isset($searchQuery)) value="{{ $bouteille->quantite }}" @else   value="{{ $bouteille->pivot->quantite }}" @endif />
+                                    Quantité : <input  @if(isset($searchQuery)) id="{{ $bouteille->id }}" @else id="{{ $bouteille->pivot->id }}" @endif  @if(isset($searchQuery)) name="{{ $bouteille->id }}" @else name="{{ $bouteille->pivot->id }}" @endif  type="number" min="1" @if(isset($searchQuery)) value="{{ $bouteille->quantite }}" @else   value="{{ $bouteille->pivot->quantite }}" @endif required  pattern="[0-9]+" oninput="validNumberInput(this)" onblur="validateAndCorrect(this)" />
                                     <input name="idcb" type="hidden"  @if(isset($searchQuery)) value="{{ $bouteille->id }}" @else value="{{ $bouteille->pivot->id }}" @endif >
 
 

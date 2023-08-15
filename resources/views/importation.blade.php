@@ -24,7 +24,7 @@
         </select>
         <div class="boutons">
             <input type="submit" value="Importer les bouteilles" name="submit">
-            <a href="/logout">Déconnexion</a>
+            <a href="{{ route('authentification.logut') }}">Déconnexion</a>
         </div>
     </form>
 </div>

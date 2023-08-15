@@ -31,12 +31,12 @@
 
             <div>
                 <label for="code-postal">Code Postal:</label>
-                <input type="text" name="code-postal" value="{{ $user->cp }}">
+                <input type="text" name="code-postal" value="{{ $user->cp }}" pattern="[A-Za-z0-9]{6}">
             </div>
 
             <div>
                 <label for="phone">Téléphone:</label>
-                <input type="text" name="phone" value="{{ $user->tel }}">
+                <input type="text" name="phone" value="{{ $user->tel }}" pattern="[0-9]{10}">
             </div>
 
             <div class="align-center">
