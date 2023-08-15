@@ -28,7 +28,10 @@ class AuthController extends Controller
         }
         $user = Auth::getProvider()->retrieveByCredentials($infoConnexion);
         Auth::login($user);
-         return redirect(route('celliers.index'));
+        if($user->role_id == 1)
+            return redirect(route('importer-bouteilles'));
+        else
+            return redirect(route('celliers.index'));
     }
 
 

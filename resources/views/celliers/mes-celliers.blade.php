@@ -7,7 +7,7 @@
                     <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
                 <div class="titre-section">
-                    <h2>Mes Celliers </h2>
+                    <h1>Mes Celliers </h1>
                 </div>
             </section>
 

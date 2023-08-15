@@ -32,11 +32,11 @@
 
 
         @yield('content')
-
         @if(empty(trim($__env->yieldContent('MasquerHeaderFooter'))))
         <footer>
             <div class="footer-items">
                 <div class="footer-item">
+
                     <a href="{{ route('profile') }}">
                         <img src="{{asset('assets/profile.png')}}" alt="profile">
                         <!-- <img src="{{asset('assets/profilegris.png')}}" alt="profile"> -->

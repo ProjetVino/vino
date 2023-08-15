@@ -62,7 +62,6 @@ Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('p
 
 
 Route::get('importer-bouteilles', [SAQController::class, 'index'])->name('importer-bouteilles')->middleware('auth');
-
 Route::post('importer-bouteilles', [SAQController::class, 'scrapeSAQ']);
 
 //routes celliers

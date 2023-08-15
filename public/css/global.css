@@ -1,6 +1,7 @@
 @import url('./auth.css');
 @import url('./index.css');
 @import url('./popup.css');
+@import url('./admin.css');
 
 * {
     margin: 0;

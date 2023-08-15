@@ -36,7 +36,7 @@ class SAQ
             $webpage = $response->getBody()->getContents();
         } catch (RequestException $e) {
             // Gestion de l'erreur de requête...
-            echo $e->getMessage();
+           // echo $e->getMessage();
         }        
 
         // Utilisez un analyseur HTML, par exemple, Symfony DOM Crawler, pour extraire les informations nécessaires du HTML
@@ -47,19 +47,19 @@ class SAQ
         $elements->each(function ($node) use (&$i) {
             $info = $this->recupereInfo($node);
 
-            echo "<p>".$info->nom;
+           // echo "<p>".$info->nom;
             $retour = $this->ajouteProduit($info);
-            echo "<br>Code de retour : " . $retour->raison . "<br>";
+           // echo "<br>Code de retour : " . $retour->raison . "<br>";
             if ($retour->succes == false) {
-                echo "<pre>";
-                var_dump($info);
-                echo "</pre>";
-                echo "<br>";
+               // echo "<pre>";
+                //var_dump($info);
+                //echo "</pre>";
+                //echo "<br>";
             } else {
                 $i++;
                  $this->totalBouteilles = $i;
             }
-            echo "</p>";
+        //echo "</p>";
         });
 
         return $this->totalBouteilles;

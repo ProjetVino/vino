@@ -6,10 +6,14 @@
                 <div class="titre">
                     <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
-               
+                 @if (isset($sourcePage) && $sourcePage == 'catalogue' )
+                <div class="titre-section">
+                    <h1>Catalogue</h1>
+                </div>
+                @endif
                 @if (isset($sourcePage) && $sourcePage == 'ajoutBouteilleCellier' )
                     <div class="titre-section">
-                       <h1>Cellier :  {{ $cellier->nom }}</h1>
+                       <h1><a href="{{route('celliers.show',$cellier->id)}}">{{ $cellier->nom }}</a></h1>
                     </div>
                     <div class="text-container">
                         <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
