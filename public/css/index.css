@@ -79,6 +79,10 @@
     margin-left: 10px;
 }
 
+.titre h1 {
+    font-size: 20px;
+}
+
 .titre span {
     font-style: italic;
 }
@@ -115,7 +119,7 @@
     border: none;
     outline: none;
     padding-left: 10px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .recherche img {
@@ -161,6 +165,7 @@
     align-items: center;
 }
 
+
 .carte .card-title .icone-direita {
     width: 6px; 
     height: 6px; 
@@ -188,6 +193,10 @@
     color: #690102;
 }
 
+.titre-icons h2 {
+    margin-bottom: 20px;
+}
+
 .carte img {
     height: 90px;
 }
@@ -199,18 +208,26 @@
 }
 
 .carte h2{
-   font-size: 16px;
+   font-size: 18px;
    color: #690102;
    font-family: 'Oswald', sans-serif;
 }
 
 .carte p {
-    font-size: 12px;
+    font-size: 16px;
     color: #690102;
 }
 
+.carte input {
+    font-size: 16px;
+    appearance: none;
+    text-align: center;
+    border: #690102 solid 1px;
+    color: rgb(108, 102, 97);
+}
+
 .carte h3 {
-    font-size: 14px;
+    font-size: 16px;
     color: #690102;
 }
 
@@ -228,8 +245,8 @@
 }
 
 .btn-carte a{
-    font-weight: 750;
-    font-size: 9px;
+    font-weight: 500;
+    font-size: 14px;
     color: #690102;
     background-color: rgb(216, 214, 212);
     padding: 4px 10px;
@@ -270,6 +287,7 @@
     color: #8d8686;
     font-size: 14px;
     padding: 0.5rem;
+    margin-top: 40px;
 }
 
 .details-nbBouteilles{
@@ -341,8 +359,8 @@
 
 .product-cart {
     padding: 1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
 }
 
 .product-price {
@@ -351,17 +369,19 @@
     font-weight: 500;
     padding: 0 1rem 0.2rem;
     text-decoration: none;
+    vertical-align: bottom;
 
 }
 
 .product-add-cart-btn {
-    
     color: #ffffff;
     border: none;
     padding: 0.7rem;
-    font-size: small;
+    font-size: 16px;
     background-color: #6b141a;
     cursor: pointer;
+    margin-top: 15px;
+    vertical-align: baseline;
 }
 
 
@@ -385,8 +405,14 @@
     text-decoration:none;
 }
 
+.titre-section h1 {
+    font-family: 'Oswald', sans-serif;
+}
+
 .titre-section h2{
-    font-size: 15px;
+    font-size: 20px;
+    margin-top: 50px;
+    font-family: 'Oswald', sans-serif;
 }
  .titre-entete{
     font-size: 10px;
@@ -420,7 +446,7 @@
     align-items: center;
     justify-content: right;
     color: #690102;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .align-right img {
@@ -501,8 +527,8 @@ main {
     color: #690102; 
 }
 .btn-carte-btn {
-    font-weight: 790;
-    font-size: 9px;
+    font-weight: 500;
+    font-size: 14px;
     color: #690102;
     background-color: rgb(216, 214, 212);
     padding: 4px 10px;
@@ -531,6 +557,7 @@ main {
 .form-profile p{
     font-weight: bold;
     color:#690102;
+    font-size: 16px;
 }
 
 .form-profile span { 
@@ -563,6 +590,11 @@ main {
     border-bottom: 2px solid #690102;
     width: 100%;
     color: rgb(108, 102, 97);
+    background-color: rgb(244, 243, 242);
+}
+
+.edit-profile textarea {
+    background-color: rgb(244, 243, 242);
 }
 
 .edit-profile label {

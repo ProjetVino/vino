@@ -54,11 +54,11 @@
     outline: none;
     width: 100%;
     border-radius: 2px;
-    padding: .8rem;
-    padding-left: 2rem;
+    /* padding: .8rem; */
+    /* padding-left: 2rem; */
     background-color: transparent;
     border-bottom: 2px solid #690102;
-
+    color: rgb(108, 102, 97);
 }
 
 .auth-form-input::placeholder {

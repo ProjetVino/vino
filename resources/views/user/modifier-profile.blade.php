@@ -42,7 +42,7 @@
             <div class="align-center">
                 <button type="submit" class="product-add-cart-btn">Enregistrer</button>
             </div>
-        </form>g
+        </form>
        
     </main>
 

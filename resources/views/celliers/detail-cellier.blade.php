@@ -34,7 +34,7 @@
                     <form method="post" action="{{ route('rechercherCellier') }}">
                         @csrf
                         <div class="recherche">
-                            <input id="rechercheInput" name="searchQuery" type="text" placeholder="Rechercher un vin" value="{{   $searchQuery ?? '' }}" >
+                            <input id="rechercheInput" name="searchQuery" type="text" placeholder="Rechercher un vin dans mon cellier" value="{{   $searchQuery ?? '' }}" >
                              <a href="{{ route('rechercherCellier') }}"  onclick="event.preventDefault(); document.querySelector('form').submit();">
                                 <img src="{{asset('assets/lupe.png')}}" alt="lupe">
                              </a>
@@ -58,7 +58,7 @@
 
                                 <p>{{ $bouteille->description }}</p>
                                 <h3>Prix : {{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $  </h3>
-                                    Quantité : <input  @if(isset($searchQuery)) id="{{ $bouteille->id }}" @else id="{{ $bouteille->pivot->id }}" @endif  @if(isset($searchQuery)) name="{{ $bouteille->id }}" @else name="{{ $bouteille->pivot->id }}" @endif  type="number" min="1" @if(isset($searchQuery)) value="{{ $bouteille->quantite }}" @else   value="{{ $bouteille->pivot->quantite }}" @endif />
+                                <p>Quantité : <input  @if(isset($searchQuery)) id="{{ $bouteille->id }}" @else id="{{ $bouteille->pivot->id }}" @endif  @if(isset($searchQuery)) name="{{ $bouteille->id }}" @else name="{{ $bouteille->pivot->id }}" @endif  type="number" min="1" @if(isset($searchQuery)) value="{{ $bouteille->quantite }}" @else   value="{{ $bouteille->pivot->quantite }}" @endif /></p>
                                     <input name="idcb" type="hidden"  @if(isset($searchQuery)) value="{{ $bouteille->id }}" @else value="{{ $bouteille->pivot->id }}" @endif >
 
 
