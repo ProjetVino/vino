@@ -54,7 +54,6 @@ Route::post('create',  [UserController::class, 'store']);
 
 
 Route::get('importer-bouteilles', [SAQController::class, 'index'])->name('importer-bouteilles')->middleware('auth');
-
 Route::post('importer-bouteilles', [SAQController::class, 'scrapeSAQ']);
 
 //routes celliers
