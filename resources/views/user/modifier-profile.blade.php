@@ -40,7 +40,7 @@
             </div>
 
             <div class="align-center">
-                <button type="submit" class="product-add-cart-btn">Enregistrer</button>
+                <button type="submit" class="product-add-cart-btn">Modifier</button>
             </div>
         </form>
        
