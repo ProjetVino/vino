@@ -322,7 +322,6 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-
     object-fit: contain;
 }
 
@@ -517,4 +516,53 @@ main {
     right: 10px;
 }
 
+/* Profile */
 
+.form-profile{
+    font-size: 15px;
+}
+
+.form-profile p{
+    font-weight: bold;
+    color:#690102;
+}
+
+.form-profile span { 
+    font-weight: normal;
+    color: rgb(108, 102, 97);
+}
+
+.form-profile>div {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.titre-section img {
+    height: 20px;
+}
+
+.align-right {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.edit-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edit-profile input {
+    border: none;
+    border-bottom: 2px solid #690102;
+    width: 100%;
+    color: rgb(108, 102, 97);
+}
+
+.edit-profile label {
+    color: #690102;
+}
+
+.align-center {
+    text-align: center;
+}

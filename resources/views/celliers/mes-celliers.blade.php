@@ -29,8 +29,8 @@
                                              <h2 class="card-title">{{ $cellier->nom  }}</h2>
                                         </div>
                                         <div class="icons">
-                                        <a href="{{ route('modifier-cellier', ['id' => $cellier->id]) }}"> <img src="{{asset('assets/crayon.png')}}" alt="Ícone" title="Modifier Cellier" class="icon"> </a>
-                                       <a href="{{ route('supprimer-cellier', ['id' => $cellier->id]) }}"> <img src="{{asset('assets/poubelle.png')}}" alt="Ícone" title="Supprimer Cellier" class="icon"> </a>
+                                            <a href="{{ route('modifier-cellier', ['id' => $cellier->id]) }}"> <img src="{{asset('assets/crayon.png')}}" alt="Ícone" title="Modifier Cellier" class="icon"> </a>
+                                            <a href="{{ route('supprimer-cellier', ['id' => $cellier->id]) }}"> <img src="{{asset('assets/poubelle.png')}}" alt="Ícone" title="Supprimer Cellier" class="icon"> </a>
                                         </div>
                                     </div>
 
