@@ -143,6 +143,12 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+@media screen and (max-width: 655px) {
+    .carte {
+        justify-content: center;
+    }
+}
+
 .carte .card-title {
     display: flex;
     align-items: center;
