@@ -3,7 +3,10 @@
 
 @section('content')
     <main class="cellier-container">
-            <form method="post" class="cellier-form-container" action="{{route('celliers.store')}}">
+            <div class="titre-section">
+                <h2>Ajouter Cellier</h2>
+            </div>
+            <form method="post" class="cellier-form-container edit-profile" action="{{route('celliers.store')}}">
                 @csrf
                 <label class="auth-form-label">
                Nom du cellier
@@ -12,7 +15,6 @@
                         name="nom"
                         class="auth-form-input"
                         class="auth-icon"
-                        placeholder="Nom du cellier"
                         required
                         value="{{ old('nom') }}"
                     />
@@ -27,11 +29,10 @@
                     <textarea name="note" class="auth-form-input"></textarea>
                 </label>
 
-                <input
-                    type="submit"
-                    class="auth-form-input-submit"
-                    value="Enregistrer"
-                />
+                <div class="align-center">
+                    <button type="submit" class="product-add-cart-btn"value="Enregistrer">Enregistrer</button>
+                   
+                </div>
 
             </form>
 
