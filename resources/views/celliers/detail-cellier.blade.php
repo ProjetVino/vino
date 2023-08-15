@@ -2,7 +2,11 @@
 @section('titre', 'MES CELLIERS')
 @push('css')    
 
+
+<link href="{{ asset('css/icons/fontawesome.min.css') }}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
    
 @endpush
 @section('content')
@@ -67,7 +71,8 @@
                             
             <button id="btUpdateQte" type="button"  class="btn btn-link card-link" onclick="updateQuantite(' {{ isset($searchQuery) ? $bouteille->id : $bouteille->pivot->id }}','{{ isset($searchQuery) ? $bouteille->quantite : $bouteille->pivot->quantite }} ')" >
                                    
-                                   <span class='bi bi-save'></span>
+            <i class="fa-solid fa-floppy-disk"></i>
+
                                 
                                 </button> 
 

@@ -470,9 +470,9 @@ main {
 }
 
 .bi-trash {
-    color: #690102; 
+    color: red; 
 }
-.bi-save {
+.fa-floppy-disk {
     color: #690102; 
 }
 .btn-carte-btn {
