@@ -1,5 +1,7 @@
 // Fonction de la mise a jour de la quantité :
 function updateQuantite(id,qte) {
+    var myid =id.trim();
+    
     const currentUrl = window.location.href;
     let url = currentUrl+'/updateQuantite';
     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
@@ -14,7 +16,7 @@ function updateQuantite(id,qte) {
         credentials: "same-origin",
         body: JSON.stringify({
             idcb: id,
-            quantite: qte
+            quantite:document.getElementById(myid).value
         })
     })
         .then((data) => {
