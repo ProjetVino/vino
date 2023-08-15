@@ -36,11 +36,11 @@
         @if(empty(trim($__env->yieldContent('MasquerHeaderFooter'))))
         <footer>
             <div class="footer-items">
-                <div class="footer-item gris">
-                    <!-- <a href="{{ route('bouteilles.index') }}"> -->
-                        <!-- <img src="{{asset('assets/profile.png')}}" alt="profile"> -->
-                        <img src="{{asset('assets/profilegris.png')}}" alt="profile">
-                    <!-- </a> -->
+                <div class="footer-item">
+                    <a href="{{ route('profile') }}">
+                        <img src="{{asset('assets/profile.png')}}" alt="profile">
+                        <!-- <img src="{{asset('assets/profilegris.png')}}" alt="profile"> -->
+                    </a>
                     <p>Profile</p>
                 </div>
                 <div class="footer-item">

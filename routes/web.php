@@ -53,6 +53,14 @@ Route::get('/create',  [UserController::class, 'index'])->name('user.create');
 Route::post('create',  [UserController::class, 'store']);
 
 
+//routes pour la modification des informations d'utilisateur
+Route::get('/profile', [UserController::class, 'showProfile'])->name('profile')->middleware('auth');
+Route::get('/profile/modifier', [UserController::class, 'editProfile'])->name('modifier-profile')->middleware('auth');
+Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update')->middleware('auth');
+
+
+
+
 Route::get('importer-bouteilles', [SAQController::class, 'index'])->name('importer-bouteilles')->middleware('auth');
 
 Route::post('importer-bouteilles', [SAQController::class, 'scrapeSAQ']);
@@ -62,11 +70,11 @@ Route::get('/supprimer/cellier/{id}', [CellierController::class, 'destroy'])->na
 Route::get('/modifier/cellier/{id}', [CellierController::class, 'edit'])->name('modifier-cellier')->middleware('auth');
 Route::post('/modifier/cellier/{id}', [CellierController::class, 'update'])->middleware('auth');
 
-    // routes pour la vue cellier
-    Route::resource('celliers',  CellierController::class)->middleware('auth');
-    Route::resource('bouteillecellier',  BouteilleCellierController::class)->middleware('auth');
-    Route::get('/indexCellier/{cellier_id}',  [BouteilleController::class, 'indexCellier'])->name('bouteilles.indexCellier')->middleware('auth');
-    Route::post('celliers/{id}/updateQuantite',  [BouteilleCellierController::class, 'updateQuantite'])->name('updateQuantite')->middleware('auth');
-    Route::post('celliers/{id}/bouteillecellier-destroy',  [BouteilleCellierController::class, 'destroy'])->name('destroyBC')->middleware('auth');
-    Route::post('rechercherCellier', [BouteilleCellierController::class, 'rechercherCellier'])->name('rechercherCellier');
-    Route::post('ajouter/{id}',  [BouteilleCellierController::class, 'ajouterbouteilleaucelleir'])->name('ajouterBouteilleCellier')->middleware('auth');
+// routes pour la vue cellier
+Route::resource('celliers',  CellierController::class)->middleware('auth');
+Route::resource('bouteillecellier',  BouteilleCellierController::class)->middleware('auth');
+Route::get('/indexCellier/{cellier_id}',  [BouteilleController::class, 'indexCellier'])->name('bouteilles.indexCellier')->middleware('auth');
+Route::post('celliers/{id}/updateQuantite',  [BouteilleCellierController::class, 'updateQuantite'])->name('updateQuantite')->middleware('auth');
+Route::post('celliers/{id}/bouteillecellier-destroy',  [BouteilleCellierController::class, 'destroy'])->name('destroyBC')->middleware('auth');
+Route::post('rechercherCellier', [BouteilleCellierController::class, 'rechercherCellier'])->name('rechercherCellier');
+Route::post('ajouter/{id}',  [BouteilleCellierController::class, 'ajouterbouteilleaucelleir'])->name('ajouterBouteilleCellier')->middleware('auth');
