@@ -58,8 +58,10 @@
 
                                 <p>{{ $bouteille->description }}</p>
                                 <h3>Prix : {{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $  </h3>
+                                <!-- <p>Quantité : <input  @if(isset($searchQuery)) id="{{ $bouteille->id }}" @else id="{{ $bouteille->pivot->id }}" @endif  @if(isset($searchQuery)) name="{{ $bouteille->id }}" @else name="{{ $bouteille->pivot->id }}" @endif  type="number" min="1" @if(isset($searchQuery)) value="{{ $bouteille->quantite }}" @else   value="{{ $bouteille->pivot->quantite }}" @endif oninput="validNumberInput(this)" onblur="validateAndCorrect(this)" /></p>
+                                    <input name="idcb" type="hidden"  @if(isset($searchQuery)) value="{{ $bouteille->id }}" @else value="{{ $bouteille->pivot->id }}" @endif > -->
                                 <p>Quantité : <input  @if(isset($searchQuery)) id="{{ $bouteille->id }}" @else id="{{ $bouteille->pivot->id }}" @endif  @if(isset($searchQuery)) name="{{ $bouteille->id }}" @else name="{{ $bouteille->pivot->id }}" @endif  type="number" min="1" @if(isset($searchQuery)) value="{{ $bouteille->quantite }}" @else   value="{{ $bouteille->pivot->quantite }}" @endif oninput="validNumberInput(this)" onblur="validateAndCorrect(this)" /></p>
-                                    <input name="idcb" type="hidden"  @if(isset($searchQuery)) value="{{ $bouteille->id }}" @else value="{{ $bouteille->pivot->id }}" @endif >
+                                    <input  id="quantite" name="idcb" type="hidden"  @if(isset($searchQuery)) value="{{ $bouteille->id }}" @else value="{{ $bouteille->pivot->id }}" @endif >
 
 
                                 <!-- debut -->
