@@ -10,23 +10,23 @@
    
 @endpush
 @section('content')
-        <main>
+        <main main class="main-content">
             <section class="container">
-                <div class="titre-section">
-                    
-                    <h1 data-toggle="tooltip" data-placement="top" title="{{ $cellier->note }}">
-                    {{ $cellier->nom }}
-                    </h1>
-                   
-                    <h5><i class="font-weight-bold">{{$cellier->bouteilles->count()}}</i> Bouteilles dans votre cellier</h5>
-
+                <div class="titre">
+                    <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
-                <div class="text-container">
-                    <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
-                        <img src="{{asset('assets/add.png')}}" alt="add">
-                        Ajouter une bouteille
-                    </a>
-                </div>
+                    <div class="titre-section">
+                        <h1 data-toggle="tooltip" data-placement="top" title="{{ $cellier->note }}">
+                        {{ $cellier->nom }}
+                        </h1>
+                        <h5><i class="font-weight-bold">{{$cellier->bouteilles->sum('pivot.quantite')}}</i> bouteille(s) dans votre cellier</h5>
+                    </div>
+                    <div class="text-container">
+                        <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
+                            <img src="{{asset('assets/add.png')}}" alt="add">
+                            Ajouter une bouteille
+                        </a>
+                    </div>
             </section>
 
             <section class="catalogue">
@@ -34,8 +34,10 @@
                     <form method="post" action="{{ route('rechercherCellier') }}">
                         @csrf
                         <div class="recherche">
-                            <img src="{{asset('assets/lupe.png')}}" alt="lupe">
                             <input id="rechercheInput" name="searchQuery" type="text" placeholder="Rechercher un vin" value="{{   $searchQuery ?? '' }}" >
+                             <a href="{{ route('rechercherCellier') }}"  onclick="event.preventDefault(); document.querySelector('form').submit();">
+                                <img src="{{asset('assets/lupe.png')}}" alt="lupe">
+                             </a>
                             <input name="cellierid" type="hidden" value="{{$cellier->id}}">
                         </div>
                     </form>
@@ -85,9 +87,9 @@
                         </div>
 
                     @empty
-
-                        <label>Pas de bouteilles</label>
-
+                        <div class="carte centrer-text">
+                            <p>Aucune bouteille trouvée!</p>
+                        </div>
                     @endforelse
 
                 </div>

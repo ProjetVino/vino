@@ -66,15 +66,27 @@ class UserController extends Controller
         //
     }
 
+    public function showProfile()
+    {
+        $user = auth()->user(); // Obtém o usuário logado
+        return view('user.index-profile', compact('user'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+    
+    }
+
+    public function editProfile()
+    {
+        $user = auth()->user();
+        return view('user.modifier-profile', compact('user'));
     }
 
     /**
@@ -87,6 +99,31 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function updateProfile(Request $request)
+    {
+    $user = auth()->user();
+
+    $validatedData = $request->validate([
+        'nom' => 'required|min:2|max:50',
+        'email' => 'required|email|unique:users,email,' . $user->id,
+        'adresse' => 'nullable|string',
+        'ville' => 'nullable|string',
+        'code-postal' => 'nullable|string',
+        'phone' => 'nullable|string',
+    ]);
+
+    $user->update([
+        'nom' => $validatedData['nom'],
+        'email' => $validatedData['email'],
+        'adresse' => $validatedData['adresse'],
+        'ville' => $validatedData['ville'],
+        'cp' => $validatedData['code-postal'],
+        'tel' => $validatedData['phone'],
+    ]);
+
+    return redirect(route('profile'))->with('success', 'Profile updated successfully!');
     }
 
     /**

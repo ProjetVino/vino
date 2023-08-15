@@ -7,9 +7,11 @@ use App\Models\Bouteille;
 use App\Models\Cellier;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Session;
 
 class BouteilleController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +19,11 @@ class BouteilleController extends Controller
      */
     public function index()
     {
+        Session::put('sourcePage', 'catalogue');
         $bouteilles = Bouteille::paginate(30);
-        
-         return view('bouteilles.index',['bouteilles' => $bouteilles]);
+        $cellier = Cellier::find(Session::get('cellier_id'));
+        $nombreDeBouteilles = Bouteille::count().' bouteille(s) trouvée(s).';
+        return view('bouteilles.index',['bouteilles' => $bouteilles,'cellier' =>  $cellier ,  'nbBouteilles' => $nombreDeBouteilles, 'sourcePage' =>  Session::get('sourcePage')]);
     }
 
     // recherche de bouteilles
@@ -44,11 +48,16 @@ class BouteilleController extends Controller
                     }
                 });
         })->paginate(30);
-
+        $nombreDeBouteilles = $bouteilles->total().' bouteille(s) trouvée(s).';
+       $cellier = Cellier::find(Session::get('cellier_id'));
        $bouteilles->withPath('/recherche')->appends(request()->except('_token'));
           return view('bouteilles.index', [
                     'bouteilles' => $bouteilles,
-                    'searchQuery' => $searchQuery
+                    'searchQuery' => $searchQuery,
+                    'nbBouteilles' => $nombreDeBouteilles,
+                    'sourcePage' =>  Session::get('sourcePage'),
+                    'cellier' => $cellier
+
         ]);
         
     }
@@ -131,9 +140,14 @@ class BouteilleController extends Controller
 
     public function indexCellier($cellier_id)
     {
+        Session::put('cellier_id', $cellier_id);
+        Session::put('sourcePage', 'ajoutBouteilleCellier');
+
         $bouteilles = Bouteille::paginate(30);
-        $cellier = Cellier::find($cellier_id);
-        return view('bouteilles.index-cellier',compact('bouteilles','cellier'));
+        $cellier = Cellier::find( Session::get('cellier_id'));
+        //return view('bouteilles.index-cellier',compact('bouteilles','cellier'));
+        $nombreDeBouteilles = Bouteille::count().' bouteille(s) trouvée(s).';
+        return view('bouteilles.index',['bouteilles' => $bouteilles, 'cellier' => $cellier, 'nbBouteilles' => $nombreDeBouteilles, 'sourcePage' =>   Session::get('sourcePage')]);
     }
 
 }

@@ -6,17 +6,35 @@
                 <div class="titre">
                     <h1>Bonjour <span>{{ Auth::user()->nom }}</span></h1>
                 </div>
-                <div>
+                 @if (isset($sourcePage) && $sourcePage == 'catalogue' )
+                <div class="titre-section">
+                    <h1>Catalogue</h1>
+                </div>
+                @endif
+                @if (isset($sourcePage) && $sourcePage == 'ajoutBouteilleCellier' )
+                    <div class="titre-section">
+                       <h1><a href="{{route('celliers.show',$cellier->id)}}">{{ $cellier->nom }}</a></h1>
+                    </div>
+                    <div class="text-container">
+                        <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
+                            <img src="{{asset('assets/add.png')}}" alt="add">
+                            Ajouter une bouteille personalisée
+                        </a>
+                    </div>                    
+                @else
                     <a href="{{ route('celliers.create') }}" class="text-container">
                         <img src="{{asset('assets/add.png')}}" alt="add">
                         Ajouter un cellier
                     </a>
-                </div>
+                @endif
+                
                 <form method="post" action="{{ route('recherche') }}">
                      @csrf
                     <div class="recherche">
-                        <img src="{{asset('assets/lupe.png')}}" alt="lupe">
                         <input id="rechercheInput" name="valeur" type="text" placeholder="Rechercher un vin dans le catalogue" value="{{   $searchQuery ?? '' }}" >
+                        <a href="{{ route('recherche') }}" onclick="event.preventDefault(); document.querySelector('form').submit();">
+                            <img src="{{asset('assets/lupe.png')}}" alt="lupe">
+                        </a>
                     </div>
                 </form>
 
@@ -25,10 +43,13 @@
             <section id="bouteillesContainer" class="catalogue">
 
             @if ($bouteilles->isEmpty())
-                <div class="carte">
+                <div class="carte centrer-text">
                   <p>Aucune bouteille trouvée!</p>
                 </div>
             @else
+             @if (isset($nbBouteilles) && !empty($nbBouteilles))
+                <div class="details-nbBouteilles">{{$nbBouteilles}}</div>
+            @endif
                 @foreach ($bouteilles as $bouteille)
                     <div class="carte">
                         <div>
@@ -40,7 +61,7 @@
                             <h3>{{ number_format($bouteille->prix_saq, 2, '.', ' ')}} $</h3>
                             <div class="btn-carte">
                                 <a href="{{ route('bouteilles.details', ['id' => $bouteille->id]) }}">Détails</a>
-                                <input type="button" class="btn-carte-btn" onclick="ajouterAuCellier(event)" data-id="{{$bouteille->id}}" value="Ajouter à mon cellier">
+                                <input type="button" class="btn-carte-btn" onclick="ajouterAuCellier(event)" data-id="{{$bouteille->id}}" data-cellier_id="{{ ($sourcePage == 'ajoutBouteilleCellier')?$cellier->id:null}}" value="Ajouter à mon cellier">   
                             </div>
                         </div>
                     </div>

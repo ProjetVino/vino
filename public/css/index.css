@@ -90,7 +90,8 @@
     align-items: center;
     justify-content: right;
     color: #690102;
-    font-size: 14px;
+    font-size: 16px;
+    margin-right: 5px;
 }
 
 .text-container img {
@@ -227,6 +228,7 @@
 }
 
 .btn-carte a{
+    font-weight: 750;
     font-size: 9px;
     color: #690102;
     background-color: rgb(216, 214, 212);
@@ -265,8 +267,15 @@
 
 .details-category {
     font-weight: 600;
-    color: #6b141a;
+    color: #8d8686;
     font-size: 14px;
+    padding: 0.5rem;
+}
+
+.details-nbBouteilles{
+    font-weight: 600;
+    color: #8d8686;
+    font-size: 12px;
     padding: 0.5rem;
 }
 
@@ -319,7 +328,6 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-
     object-fit: contain;
 }
 
@@ -371,9 +379,20 @@
     text-align: center;
     font-weight: normal;
 }
+.titre-section a {
+    color: #690102;
+    text-align: center;
+    text-decoration:none;
+}
 
 .titre-section h2{
     font-size: 15px;
+}
+ .titre-entete{
+    font-size: 10px;
+    color: #690102;
+    text-align: center;
+    
 }
 
 .titre-section h5{
@@ -482,18 +501,74 @@ main {
     color: #690102; 
 }
 .btn-carte-btn {
+    font-weight: 790;
     font-size: 9px;
     color: #690102;
     background-color: rgb(216, 214, 212);
     padding: 4px 10px;
     border: none;
     text-decoration: none;
-
 }
+.centrer-bouton{
+    justify-content: center;
+}
+.centrer-text{
+    justify-content: center;
+}
+
 .toast{
     position: fixed;
     bottom: 100px;
     right: 10px;
 }
 
+/* Profile */
 
+.form-profile{
+    font-size: 15px;
+}
+
+.form-profile p{
+    font-weight: bold;
+    color:#690102;
+}
+
+.form-profile span { 
+    font-weight: normal;
+    color: rgb(108, 102, 97);
+}
+
+.form-profile>div {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.titre-section img {
+    height: 20px;
+}
+
+.align-right {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.edit-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edit-profile input {
+    border: none;
+    border-bottom: 2px solid #690102;
+    width: 100%;
+    color: rgb(108, 102, 97);
+}
+
+.edit-profile label {
+    color: #690102;
+}
+
+.align-center {
+    text-align: center;
+}
