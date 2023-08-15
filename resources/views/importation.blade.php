@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('titre', 'Importation')
+@section('MasquerFooter', true)<!--  pour afficher ou masquer  et le footer -->
 @section('content')
 <main class="main-content admin">
 <div class="details-container">
