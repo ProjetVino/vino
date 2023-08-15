@@ -34,6 +34,8 @@
 
         @yield('content')
         @if(empty(trim($__env->yieldContent('MasquerHeaderFooter'))))
+        @if(empty(trim($__env->yieldContent('MasquerFooter'))))
+       
         <footer>
             <div class="footer-items">
                 <div class="footer-item">
@@ -65,8 +67,10 @@
             </div>
         </footer>
         @endif
+        @endif
     </div>
     @stack('js')
     <script src="{{ asset('js/popUp.js') }}"></script> <!-- Inclure le fichier JavaScript de popup -->
+    <script src="{{ asset('js/validation.js') }}"></script> 
 </body>
 </html>

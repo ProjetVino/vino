@@ -28,13 +28,13 @@
                 @endif
 
                 <div>
-                    <label>Commentaire:
+                    <label class="auth-form-label">Commentaire:
                         <textarea name="note" class="auth-form-input" >{{ old('note',$cellier->note) }}</textarea>
                     </label>
                 </div>
                     
                 <div class="align-center">
-                    <button type="submit" class="product-add-cart-btn"value="Modifier">Enregistrer</button>
+                    <button type="submit" class="product-add-cart-btn"value="Modifier">Modifier</button>
                    
                 </div>
 

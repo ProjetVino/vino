@@ -27,7 +27,7 @@ function envoyerFormulaire(idBouteille) {
         return; // Arrête l'exécution de la fonction
     }
 
-    fetch("/ajouter-au-cellier", {
+    fetch("/vino/ajouter-au-cellier", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -14,13 +14,7 @@
                 @if (isset($sourcePage) && $sourcePage == 'ajoutBouteilleCellier' )
                     <div class="titre-section">
                        <h1><a href="{{route('celliers.show',$cellier->id)}}">{{ $cellier->nom }}</a></h1>
-                    </div>
-                    <div class="text-container">
-                        <a href="{{route('bouteilles.indexCellier',$cellier->id)}}" class="text-container">
-                            <img src="{{asset('assets/add.png')}}" alt="add">
-                            Ajouter une bouteille personalisée
-                        </a>
-                    </div>                    
+                    </div>                 
                 @else
                     <a href="{{ route('celliers.create') }}" class="text-container">
                         <img src="{{asset('assets/add.png')}}" alt="add">
